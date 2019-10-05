@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-public class ListWordActivity extends AppCompatActivity {
+public class VocabularyTopicFavoriteActivity extends AppCompatActivity {
 
     Intent intent = getIntent();
     ListView lv_word;
@@ -31,14 +31,14 @@ public class ListWordActivity extends AppCompatActivity {
         item_lvWord.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(ListWordActivity.this, ShowWordActivity.class);
+                intent = new Intent(VocabularyTopicFavoriteActivity.this, Level1Activity.class);
                 startActivity(intent);
             }
         });
         imgHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(ListWordActivity.this, StartActivity.class);
+                intent = new Intent(VocabularyTopicFavoriteActivity.this, StartActivity.class);
                 startActivity(intent);
             }
         });

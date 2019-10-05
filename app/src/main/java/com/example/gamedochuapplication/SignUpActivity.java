@@ -22,13 +22,15 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void init() {
         btnSignUp = findViewById(R.id.btn_signUp);
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
-        });
+        edtFullname = findViewById(R.id.edt_sign_up_fullname);
+        edtAge = findViewById(R.id.edt_sign_up_age);
+        edtDoB = findViewById(R.id.edt_sign_up_dob);
+        edtEmail = findViewById(R.id.edt_sign_up_email);
+        edtUsername = findViewById(R.id.edt_sign_up_username);
+        edtPassword = findViewById(R.id.edt_sign_up_password);
     }
 
+    void clickSignUp(){
+
+    }
 }

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@color/bg_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit Profile"
+            android:textSize="@dimen/sp_50sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edt_fullName_edit"
+            android:layout_width="@dimen/dp_313dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_fullName_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_fullName_edit" />
+
+        <EditText
+            android:id="@+id/edt_age_edit"
+            android:layout_width="@dimen/dp_313dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_age_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.704"
+            app:layout_constraintStart_toEndOf="@+id/tv_age_edit"
+            app:layout_constraintTop_toBottomOf="@+id/edt_fullName_edit" />
+
+        <TextView
+            android:id="@+id/tv_age_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_25dp"
+            android:layout_marginLeft="@dimen/dp_25dp"
+            android:layout_marginTop="@dimen/dp_50dp"
+            android:text="Age"
+            android:textSize="@dimen/sp_30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_fullName_edit" />
+
+        <TextView
+            android:id="@+id/tv_fullName_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fullname: "
+            android:textSize="@dimen/sp_30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.056"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.062" />
+
+        <TextView
+            android:id="@+id/tv_dob_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_25dp"
+            android:layout_marginLeft="@dimen/dp_25dp"
+            android:layout_marginTop="@dimen/dp_50dp"
+            android:text="Date of Birth:"
+            android:textSize="@dimen/sp_30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_age_edit" />
+
+        <EditText
+            android:id="@+id/edt_dob_edit"
+            android:layout_width="@dimen/dp_313dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_dob_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.295"
+            app:layout_constraintStart_toEndOf="@+id/tv_dob_edit"
+            app:layout_constraintTop_toBottomOf="@+id/edt_age_edit" />
+
+        <TextView
+            android:id="@+id/tv_email_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_25dp"
+            android:layout_marginLeft="@dimen/dp_25dp"
+            android:layout_marginTop="@dimen/dp_50dp"
+            android:text="Email:"
+            android:textSize="@dimen/sp_30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_dob_edit" />
+
+        <EditText
+            android:id="@+id/edt_email_edit"
+            android:layout_width="@dimen/dp_313dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/tv_email_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.655"
+            app:layout_constraintStart_toEndOf="@+id/tv_email_edit"
+            app:layout_constraintTop_toBottomOf="@+id/edt_dob_edit" />
+
+        <Button
+            android:id="@+id/btn_save_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/dp_200dp"
+            android:background="@drawable/btn_level_1"
+            android:paddingLeft="@dimen/dp_50dp"
+            android:paddingTop="@dimen/dp_25dp"
+            android:paddingRight="@dimen/dp_50dp"
+            android:paddingBottom="@dimen/dp_25dp"
+            android:text="Save"
+            android:textSize="@dimen/sp_30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.183"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btn_cancel_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp_50dp"
+            android:paddingRight="@dimen/dp_50dp"
+            android:paddingBottom="@dimen/dp_25dp"
+            android:paddingTop="@dimen/dp_25dp"
+            android:background="@drawable/btn_cancel"
+            android:text="Cancel"
+            android:textSize="@dimen/sp_30sp"
+            android:layout_marginBottom="@dimen/dp_200dp"
+            app:layout_constraintStart_toEndOf="@id/btn_save_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

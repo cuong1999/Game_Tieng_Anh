@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ShowWordActivity">
+    tools:context=".Level1Activity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,8 +16,8 @@
 
         <ImageView
             android:id="@+id/img_home"
-            android:layout_width="155dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/dp_150dp"
+            android:layout_height="@dimen/dp_100dp"
             android:src="@drawable/quesansw" />
     </LinearLayout>
 

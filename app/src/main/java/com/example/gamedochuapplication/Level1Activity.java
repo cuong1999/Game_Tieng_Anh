@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ShowWordActivity extends AppCompatActivity {
+public class Level1Activity extends AppCompatActivity {
 
     TextView tvEng, tvVi;
     ImageView imgSpeaker, imgHome;
@@ -19,7 +19,7 @@ public class ShowWordActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_word);
+        setContentView(R.layout.activity_level_1);
 
         View decorView = getWindow().getDecorView();
 // Hide the status bar.
@@ -43,14 +43,14 @@ public class ShowWordActivity extends AppCompatActivity {
         btnChecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(ShowWordActivity.this, ListWordActivity.class);
+                intent = new Intent(Level1Activity.this, VocabularyTopicFavoriteActivity.class);
                 startActivity(intent);
             }
         });
         imgHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(ShowWordActivity.this, StartActivity.class);
+                intent = new Intent(Level1Activity.this, StartActivity.class);
                 startActivity(intent);
             }
         });

@@ -26,7 +26,7 @@
                 android:id="@+id/btn_speaker"
                 android:layout_width="@dimen/dp_100dp"
                 android:layout_height="@dimen/dp_100dp"
-                android:background="@drawable/btn_listen_center"
+                android:background="@drawable/btn_listen"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.523"
