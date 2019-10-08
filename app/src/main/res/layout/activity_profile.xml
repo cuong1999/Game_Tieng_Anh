@@ -32,6 +32,7 @@
             android:id="@+id/edt_fullName_edit"
             android:layout_width="@dimen/dp_313dp"
             android:layout_height="wrap_content"
+            android:background="@drawable/custom_tv"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_fullName_edit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/tv_fullName_edit" />

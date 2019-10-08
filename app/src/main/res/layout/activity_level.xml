@@ -68,4 +68,12 @@
                 app:layout_constraintTop_toBottomOf="@id/btn_lv2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="@dimen/dp_329dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/menu_list"/>
 </androidx.drawerlayout.widget.DrawerLayout>

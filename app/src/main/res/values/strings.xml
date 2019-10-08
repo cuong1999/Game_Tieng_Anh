@@ -9,4 +9,7 @@
     <string name="hintUsername">Input username....</string>
     <string name="hintPassword">Input password....</string>
     <string name="signUp">SIGN UP</string>
+    <string name="dialogTitleLoginFail">Login Fail</string>
+    <string name="errorSever">Can not connect server!!!</string>
+    <string name="errorInternet">Please check your network connection</string>
 </resources>
