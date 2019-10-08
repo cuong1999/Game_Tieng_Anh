@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <item
+        android:id="@+id/item_change_pass"
+        android:icon="@drawable/change_pass"
+        android:title="Change Password" />
+    <item
+        android:id="@+id/item_edit"
+        android:icon="@drawable/edit"
+        android:title="Edit Profile" />
+    <item
+        android:id="@+id/item_logout"
+        android:icon="@drawable/exit"
+        android:title="Logout" />
+    <item
+        android:id="@+id/item_pch_team"
+        android:icon="@drawable/info_team"
+        android:title="PCH Team"/>
+</menu>

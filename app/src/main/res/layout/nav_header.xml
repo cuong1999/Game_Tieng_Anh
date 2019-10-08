@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_200dp"
+    android:padding="@dimen/dp_15dp"
+    android:gravity="bottom"
+    android:background="@color/bg_title">
+    <ImageView
+        android:layout_width="@dimen/dp_100dp"
+        android:layout_height="@dimen/dp_100dp"
+        android:src="@drawable/plant"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="TNTC"
+        android:textStyle="bold"
+        android:textSize="@dimen/sp_30sp"/>
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="afgaaf@gmail.com"
+        android:textSize="@dimen/sp_20sp_text"/>
+</LinearLayout>

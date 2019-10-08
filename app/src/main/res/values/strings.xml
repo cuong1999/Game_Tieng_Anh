@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">GameDoChuApplication</string>
+    <string name="txt_learn">Learn</string>
+    <string name="check">Check</string>
+    <string name="Eng">text</string>
+    <string name="transViet">text</string>
+    <string name="word">Word</string>
+    <string name="vn">VN</string>
+    <string name="hintUsername">Input username....</string>
+    <string name="hintPassword">Input password....</string>
+    <string name="signUp">SIGN UP</string>
+    <string name="dialogTitleLoginFail">Login Fail</string>
+    <string name="errorSever">Can not connect server!!!</string>
+    <string name="errorInternet">Please check your network connection</string>
+</resources>

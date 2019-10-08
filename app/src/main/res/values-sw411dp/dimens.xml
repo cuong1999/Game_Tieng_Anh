@@ -1,0 +1,139 @@
+<!--0.685-->
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="dp_25dp" tools:ignore="MissingDefaultResource">
+        17.13dp
+    </dimen>
+    <dimen name="sp_20sp_text" tools:ignore="MissingDefaultResource">
+        13.7sp
+    </dimen>
+    <dimen name="dp_50dp" tools:ignore="MissingDefaultResource">
+        34.25dp
+    </dimen>
+    <dimen name="dp_70dp" tools:ignore="MissingDefaultResource">
+        47.95dp
+    </dimen>
+    <dimen name="dp_250dp" tools:ignore="MissingDefaultResource">
+        171.25dp
+    </dimen>
+    <dimen name="dp_150dp" tools:ignore="MissingDefaultResource">
+        102.75dp
+    </dimen>
+    <dimen name="dp_132dp" tools:ignore="MissingDefaultResource">
+       90.42dp
+    </dimen>
+    <dimen name="sp_50sp" tools:ignore="MissingDefaultResource">
+        34.25sp
+    </dimen>
+    <dimen name="sp_30sp" tools:ignore="MissingDefaultResource">
+        20.55sp
+    </dimen>
+    <dimen name="dp_100dp" tools:ignore="MissingDefaultResource">
+        68.5dp
+    </dimen>
+    <dimen name="sp_40sp" tools:ignore="MissingDefaultResource">
+        27.4sp</dimen>
+    <dimen name="dp_32dp" tools:ignore="MissingDefaultResource">
+        21.92dp</dimen>
+    <dimen name="dp_3dp" tools:ignore="MissingDefaultResource">
+        2.06dp</dimen>
+    <dimen name="dp_171dp" tools:ignore="MissingDefaultResource">
+        117.14dp</dimen>
+    <dimen name="dp_400dp" tools:ignore="MissingDefaultResource">
+        274dp</dimen>
+    <dimen name="dp_16dp" tools:ignore="MissingDefaultResource">
+        10.96dp</dimen>
+    <dimen name="dp_166dp" tools:ignore="MissingDefaultResource">
+        113.71dp</dimen>
+    <dimen name="dp_15dp" tools:ignore="MissingDefaultResource">
+        10.28dp</dimen>
+    <dimen name="dp_275dp" tools:ignore="MissingDefaultResource">
+        188.38dp</dimen>
+    <dimen name="dp_20dp" tools:ignore="MissingDefaultResource">
+        13.7dp</dimen>
+    <dimen name="dp_40dp" tools:ignore="MissingDefaultResource">
+        27.4dp</dimen>
+    <dimen name="dp_85dp" tools:ignore="MissingDefaultResource">
+        58.23dp
+    </dimen>
+    <dimen name="dp_412dp" tools:ignore="MissingDefaultResource">
+        282.22dp
+    </dimen>
+    <dimen name="dp_410dp" tools:ignore="MissingDefaultResource">
+        280.85dp
+    </dimen>
+    <dimen name="dp_66dp" tools:ignore="MissingDefaultResource">
+        45.21dp
+    </dimen>
+    <dimen name="dp_550dp" tools:ignore="MissingDefaultResource">
+        376.75dp
+    </dimen>
+    <dimen name="dp_54dp" tools:ignore="MissingDefaultResource">
+        36.99dp
+    </dimen>
+    <dimen name="dp_102dp" tools:ignore="MissingDefaultResource">
+        69.87dp
+    </dimen>
+    <dimen name="dp_12dp" tools:ignore="MissingDefaultResource">
+        8.22dp
+    </dimen>
+    <dimen name="dp_35dp" tools:ignore="MissingDefaultResource">
+        23.98dp
+    </dimen>
+    <dimen name="dp_200dp" tools:ignore="MissingDefaultResource">
+        137dp
+    </dimen>
+    <dimen name="dp_276dp" tools:ignore="MissingDefaultResource">
+        189.06dp
+    </dimen>
+    <dimen name="dp_476dp" tools:ignore="MissingDefaultResource">
+        326.06dp
+    </dimen>
+    <dimen name="dp_45dp" tools:ignore="MissingDefaultResource">
+        30.825dp
+    </dimen>
+    <dimen name="dp_46dp" tools:ignore="MissingDefaultResource">
+        31.28dp
+    </dimen>
+    <dimen name="dp_313dp" tools:ignore="MissingDefaultResource">
+        214.405dp
+    </dimen>
+    <dimen name="dp_244dp" tools:ignore="MissingDefaultResource">
+        167.14dp
+    </dimen>
+    <dimen name="dp_162dp" tools:ignore="MissingDefaultResource">
+        110.97dp
+    </dimen>
+    <dimen name="dp_56dp" tools:ignore="MissingDefaultResource">
+        38.36dp
+    </dimen>
+    <dimen name="dp_249dp" tools:ignore="MissingDefaultResource">
+        170.565dp
+    </dimen>
+    <dimen name="dp_329dp" tools:ignore="MissingDefaultResource">
+        225.365dp
+    </dimen>
+    <dimen name="dp_277dp" tools:ignore="MissingDefaultResource">
+        189.745dp
+    </dimen>
+    <dimen name="dp_137dp" tools:ignore="MissingDefaultResource">
+        93.845dp
+    </dimen>
+    <dimen name="dp_272dp" tools:ignore="MissingDefaultResource">
+        186.32dp
+    </dimen>
+    <dimen name="dp_386dp" tools:ignore="MissingDefaultResource">
+        264.41dp
+    </dimen>
+    <dimen name="dp_350dp" tools:ignore="MissingDefaultResource">
+        239.75dp
+    </dimen>
+    <dimen name="dp_490dp" tools:ignore="MissingDefaultResource">
+        335.65dp
+    </dimen>
+    <dimen name="dp_485dp" tools:ignore="MissingDefaultResource">
+        332.225dp
+    </dimen>
+    <dimen name="dp_658dp" tools:ignore="MissingDefaultResource">
+        450.73dp
+    </dimen>
+</resources>

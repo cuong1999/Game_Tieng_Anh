@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="bg_title">#4285f4</color>
+    <color name="white">#fff</color>
+    <color name="red">#FF0000</color>
+    <color name="black">#000000</color>
+    <color name="btnLogin">#0BE714</color>
+    <color name="btnSignup">#FF9800</color>
+    <color name="btnCancel">#C20505</color>
+</resources>
