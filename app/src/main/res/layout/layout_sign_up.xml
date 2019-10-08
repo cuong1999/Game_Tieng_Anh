@@ -8,14 +8,26 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/bg_title"
-        android:gravity="center">
+        android:orientation="horizontal"
+        android:background="@color/bg_title">
+
+        <ImageButton
+            android:id="@+id/btnBackSignup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/back"
+            android:background="@color/bg_title"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="100dp"/>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="SIGN UP"
+            android:text="Sign up"
+            android:layout_gravity="center_vertical"
             android:textColor="@color/white"
-            android:textSize="@dimen/sp_50sp"/>
+            android:textSize="@dimen/sp_50sp"
+            android:textStyle="bold" />
     </LinearLayout>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,6 +42,7 @@
             android:layout_marginLeft="@dimen/dp_16dp"
             android:layout_marginTop="@dimen/dp_56dp"
             android:text="Full name: "
+            android:textStyle="bold"
             android:textSize="@dimen/sp_30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +55,8 @@
         <EditText
             android:id="@+id/edt_sign_up_fullname"
             android:layout_width="@dimen/dp_400dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp_50dp"
+            android:background="@drawable/custom_tv"
             android:layout_marginTop="@dimen/dp_56dp"
             android:layout_marginEnd="@dimen/dp_16dp"
             android:layout_marginRight="@dimen/dp_16dp"
@@ -57,8 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="36dp"
             android:text="Age: "
+            android:textStyle="bold"
             android:textSize="@dimen/sp_30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sign_up_fullname"
@@ -67,7 +82,8 @@
         <EditText
             android:id="@+id/edt_sign_up_age"
             android:layout_width="@dimen/dp_100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp_50dp"
+            android:background="@drawable/custom_tv"
             tools:layout_editor_absoluteX="@dimen/dp_100dp"
             tools:layout_editor_absoluteY="@dimen/dp_162dp"
             app:layout_constraintStart_toEndOf="@id/sign_up_age"
@@ -78,9 +94,10 @@
             android:id="@+id/sign_up_dob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="72dp"
-            android:layout_marginLeft="72dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
             android:text="DoB: "
+            android:textStyle="bold"
             android:textSize="@dimen/sp_30sp"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_age"
             app:layout_constraintStart_toEndOf="@id/edt_sign_up_age"
@@ -89,9 +106,10 @@
         <EditText
             android:id="@+id/edt_sign_up_dob"
             android:layout_width="@dimen/dp_250dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/sign_up_dob"
+            android:layout_height="@dimen/dp_50dp"
+            android:background="@drawable/custom_tv"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_age"
+            app:layout_constraintStart_toEndOf="@id/sign_up_dob"
             tools:ignore="MissingConstraints" />
 
         <TextView
@@ -100,8 +118,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="32dp"
             android:text="Email: "
+            android:textStyle="bold"
             android:textSize="@dimen/sp_30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sign_up_age"
@@ -110,7 +129,8 @@
         <EditText
             android:id="@+id/edt_sign_up_email"
             android:layout_width="@dimen/dp_400dp"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/dp_50dp"
+            android:background="@drawable/custom_tv"
             android:layout_marginStart="28dp"
             android:layout_marginLeft="28dp"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_email"
@@ -123,8 +143,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="76dp"
+            android:layout_marginTop="28dp"
             android:text="Username: "
+            android:textStyle="bold"
             android:textSize="@dimen/sp_30sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sign_up_email"
@@ -133,9 +154,10 @@
         <EditText
             android:id="@+id/edt_sign_up_username"
             android:layout_width="@dimen/dp_350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
+            android:layout_height="@dimen/dp_50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/custom_tv"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_username"
             app:layout_constraintStart_toEndOf="@id/sign_up_username"
             tools:ignore="MissingConstraints" />
@@ -146,9 +168,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="36dp"
             android:text="Password: "
             android:textSize="@dimen/sp_30sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sign_up_username"
             tools:ignore="MissingConstraints" />
@@ -156,25 +179,35 @@
         <EditText
             android:id="@+id/edt_sign_up_password"
             android:layout_width="@dimen/dp_350dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginLeft="32dp"
+            android:layout_height="@dimen/dp_50dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/custom_tv"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_password"
             app:layout_constraintStart_toEndOf="@id/sign_up_password"
             tools:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="center_horizontal">
 
         <Button
             android:id="@+id/btn_signUp"
             android:layout_width="@dimen/dp_250dp"
-            android:layout_height="@dimen/dp_50dp"
-            android:layout_marginTop="104dp"
+            android:layout_height="@dimen/dp_100dp"
             android:background="@drawable/bnt_sign_up"
             android:text="@string/signUp"
-            android:textSize="@dimen/sp_20sp_text"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sp_30sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.524"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edt_sign_up_password"
             tools:ignore="MissingConstraints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+
 </LinearLayout>
