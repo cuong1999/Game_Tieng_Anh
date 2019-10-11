@@ -7,43 +7,113 @@
     android:layout_height="match_parent"
     tools:context=".StartActivity">
 
-   <LinearLayout
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="0dp"
-           android:layout_weight="1"
-           android:background="@color/bg_title"
-           android:gravity="center">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/bg_title"
+            android:gravity="center">
 
-           <ImageView
-               android:id="@+id/img_home"
-               android:layout_width="@dimen/dp_100dp"
-               android:layout_height="@dimen/dp_100dp"
-               android:src="@drawable/quesansw" />
-       </LinearLayout>
+            <ImageView
+                android:id="@+id/img_home"
+                android:layout_width="@dimen/dp_100dp"
+                android:layout_height="@dimen/dp_100dp"
+                android:src="@drawable/quesansw" />
+        </LinearLayout>
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="0dp"
-           android:layout_weight="6">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="7">
 
-           <ListView
-               android:id="@+id/lv_project"
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               tools:listitem="@layout/item_lv_project"/>
-       </LinearLayout>
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="0dp"
-           android:layout_weight="1">
+            <ListView
+                android:id="@+id/lv_project"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_lv_project"/>
+        </LinearLayout>
 
-       </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
-   </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_back"
+                    android:background="@drawable/custom_imv_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_favorite"
+                    android:background="@drawable/custom_imv_favorite"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_home"
+                    android:background="@drawable/custom_imv_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_restore"
+                    android:background="@drawable/custom_imv_restore"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_next"
+                    android:background="@drawable/custom_imv_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="@dimen/dp_329dp"

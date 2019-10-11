@@ -18,14 +18,14 @@
             android:background="@color/bg_title"
             android:gravity="center">
 
-           <TextView
-               android:id="@+id/txvTopicname"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Topic_name"
-               android:textSize="@dimen/sp_50sp"
-               android:textColor="@color/white"
-               android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/txvTopicname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Topic_name"
+                android:textSize="@dimen/sp_50sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"/>
         </LinearLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -73,7 +73,77 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_back"
+                    android:background="@drawable/custom_imv_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_favorite"
+                    android:background="@drawable/custom_imv_favorite"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/custom_imv_home"></ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_restore"
+                    android:background="@drawable/custom_imv_restore"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_next"
+                    android:background="@drawable/custom_imv_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>

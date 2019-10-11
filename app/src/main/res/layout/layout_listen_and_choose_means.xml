@@ -18,7 +18,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="8"
+            android:layout_weight="6"
             android:orientation="vertical">
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -88,6 +88,82 @@
                     tools:layout_editor_absoluteX="322dp" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_back"
+                    android:background="@drawable/custom_imv_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_favorite"
+                    android:background="@drawable/custom_imv_favorite"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_home"
+                    android:background="@drawable/custom_imv_home"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_restore"
+                    android:background="@drawable/custom_imv_restore"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageButton
+                    android:id="@+id/imv_next"
+                    android:background="@drawable/custom_imv_next"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </ImageButton>
+
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
     <android.support.design.widget.NavigationView

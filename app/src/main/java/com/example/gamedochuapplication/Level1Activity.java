@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,8 @@ public class Level1Activity extends AppCompatActivity {
     ImageView imgSpeaker, imgHome;
     Intent intent;
     Button btnChecked;
+    //Controls
+    ImageButton imvBack, imvFavorite, imvHome, imvRestore, imvNext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +42,46 @@ public class Level1Activity extends AppCompatActivity {
         imgSpeaker = findViewById(R.id.btn_speaker);
         imgHome = findViewById(R.id.img_home);
         btnChecked = findViewById(R.id.btn_check_showWord);
+        imvBack = findViewById(R.id.imv_back);
+        imvFavorite = findViewById(R.id.imv_favorite);
+        imvHome = findViewById(R.id.imv_home);
+        imvRestore = findViewById(R.id.imv_restore);
+        imvNext = findViewById(R.id.imv_next);
 
+        imvBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        imvFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        imvHome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        imvRestore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        imvNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
         btnChecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
