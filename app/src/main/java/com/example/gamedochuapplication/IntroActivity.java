@@ -34,6 +34,7 @@ public class IntroActivity extends AppCompatActivity {
     private void init() {
         btnKid = findViewById(R.id.btn_kid);
         btnStudent = findViewById(R.id.btn_student);
+
         btnStudent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

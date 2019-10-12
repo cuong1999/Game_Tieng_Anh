@@ -2,6 +2,7 @@ package com.example.gamedochuapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -12,6 +13,7 @@ import com.example.gamedochuapplication.R;
 public class LevelActivity extends AppCompatActivity {
     //Controls
     ImageButton imvBack, imvFavorite, imvHome, imvRestore, imvNext;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +33,8 @@ public class LevelActivity extends AppCompatActivity {
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                intent = new Intent(LevelActivity.this, StartActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -45,7 +48,8 @@ public class LevelActivity extends AppCompatActivity {
         imvHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                intent = new Intent(LevelActivity.this, StartActivity.class);
+                startActivity(intent);
             }
         });
 

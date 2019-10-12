@@ -41,8 +41,8 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:background="@color/bg_title">
+            android:layout_weight="0.8"
+            android:background="@color/nav">
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -116,7 +116,7 @@
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <android.support.design.widget.NavigationView
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="@dimen/dp_329dp"
         android:layout_height="match_parent"

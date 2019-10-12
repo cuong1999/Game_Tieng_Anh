@@ -76,10 +76,34 @@ public class LoginActivity extends AppCompatActivity {
         btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                showAlertDialog();
+            }
+        });
+
+    }
+
+    public void showAlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Cancel");
+        builder.setMessage("Would you like to stop login?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(LoginActivity.this, "Login continue...", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
                 intent = new Intent(LoginActivity.this, IntroActivity.class);
                 startActivity(intent);
             }
         });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
 
 

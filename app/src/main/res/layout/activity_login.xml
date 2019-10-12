@@ -63,17 +63,17 @@
 
             <EditText
                 android:id="@+id/edt_username"
-                android:layout_width="@dimen/dp_400dp"
-                android:layout_height="wrap_content"
+                android:layout_width="265dp"
+                android:layout_height="46dp"
                 android:layout_marginEnd="@dimen/dp_16dp"
                 android:layout_marginRight="@dimen/dp_16dp"
                 android:background="@drawable/custom_tv"
                 android:hint="@string/hintUsername"
                 android:padding="@dimen/dp_15dp"
+                app:layout_constraintBaseline_toBaselineOf="@id/tv_username"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/tv_username"
-                tools:ignore="MissingConstraints"
-                app:layout_constraintBaseline_toBaselineOf="@id/tv_username" />
+                tools:ignore="MissingConstraints" />
 
             <TextView
                 android:id="@+id/tv_password"
@@ -89,8 +89,8 @@
 
             <EditText
                 android:id="@+id/edt_password"
-                android:layout_width="@dimen/dp_400dp"
-                android:layout_height="wrap_content"
+                android:layout_width="265dp"
+                android:layout_height="47dp"
                 android:layout_marginEnd="@dimen/dp_16dp"
                 android:layout_marginRight="@dimen/dp_16dp"
                 android:background="@drawable/custom_tv"

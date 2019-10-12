@@ -10,4 +10,5 @@
     <color name="btnLogin">#0BE714</color>
     <color name="btnSignup">#FF9800</color>
     <color name="btnCancel">#C20505</color>
+    <color name="nav">#3498DB</color>
 </resources>
