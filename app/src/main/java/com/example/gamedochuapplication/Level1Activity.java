@@ -12,10 +12,10 @@ import android.widget.TextView;
 
 public class Level1Activity extends AppCompatActivity {
 
-    TextView tvEng, tvVi;
-    ImageView imgSpeaker, imgHome;
+    TextView txv_MeanLv1, txv_VocabularyLv1;
+    ImageButton imbtn_SpeakerLv1, imbtn_favoriteLv1;
+    ImageView imv_PictureLv1;
     Intent intent;
-    Button btnChecked;
     //Controls
     ImageButton imvBack, imvFavorite, imvHome, imvRestore, imvNext;
 
@@ -37,11 +37,12 @@ public class Level1Activity extends AppCompatActivity {
     }
 
     private void init() {
-        tvEng = findViewById(R.id.tv_english);
-        tvVi = findViewById(R.id.tv_vietnamese);
-        imgSpeaker = findViewById(R.id.btn_speaker);
-        imgHome = findViewById(R.id.img_home);
-        btnChecked = findViewById(R.id.btn_check_showWord);
+
+        txv_MeanLv1 = findViewById(R.id.txv_MeanLv1);
+        txv_VocabularyLv1 = findViewById(R.id.txv_VocabularyLv1);
+        imbtn_SpeakerLv1 = findViewById(R.id.imbtn_SpeakerLv1);
+        imbtn_favoriteLv1 = findViewById(R.id.imbtn_favoriteLv1);
+        imv_PictureLv1 = findViewById(R.id.imv_PictureLv1);
         imvBack = findViewById(R.id.imv_back);
         imvFavorite = findViewById(R.id.imv_favorite);
         imvHome = findViewById(R.id.imv_home);
@@ -65,7 +66,8 @@ public class Level1Activity extends AppCompatActivity {
         imvHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+            intent = new Intent(Level1Activity.this, StartActivity.class);
+            startActivity(intent);
             }
         });
 
@@ -80,20 +82,6 @@ public class Level1Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-            }
-        });
-        btnChecked.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(Level1Activity.this, VocabularyTopicFavoriteActivity.class);
-                startActivity(intent);
-            }
-        });
-        imgHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(Level1Activity.this, StartActivity.class);
-                startActivity(intent);
             }
         });
     }

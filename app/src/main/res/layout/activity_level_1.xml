@@ -24,94 +24,80 @@
                 android:src="@drawable/quesansw" />
         </LinearLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="6"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/btn_speaker"
-                android:layout_width="@dimen/dp_70dp"
-                android:layout_height="@dimen/dp_70dp"
-                android:layout_marginBottom="@dimen/dp_250dp"
-                android:src="@drawable/speaker"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_vietnamese" />
-
-            <Button
-                android:id="@+id/btn_check_showWord"
-                android:layout_width="@dimen/dp_150dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/dp_132dp"
-                android:background="@drawable/btn_bg"
-                android:text="@string/check"
-                android:textColor="@color/white"
-                android:textSize="@dimen/sp_20sp_text"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <TextView
-                android:id="@+id/tv_vietnamese"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/dp_66dp"
-                android:text="@string/transViet"
-                android:textSize="@dimen/sp_50sp"
-                app:layout_constraintBottom_toTopOf="@+id/btn_speaker"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_english" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="@dimen/dp_400dp"
-                android:layout_height="550dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="@dimen/dp_16dp"
-                android:layout_marginBottom="54dp"
-                android:background="@drawable/custom_tv"
-                app:layout_constraintBottom_toTopOf="@+id/btn_check_showWord"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.495"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tv_english"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="102dp"
-                android:layout_marginBottom="12dp"
-                android:text="@string/Eng"
-                android:textSize="@dimen/dp_70dp"
-                app:layout_constraintBottom_toTopOf="@+id/tv_vietnamese"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal">
+            android:layout_weight="6"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txv_VocabularyLv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Vocabulary"
+                    android:textSize="@dimen/sp_50sp"
+                    android:layout_marginTop="@dimen/dp_40dp"
+                    android:layout_marginBottom="@dimen/dp_40dp"/>
+
+                <ImageButton
+                    android:id="@+id/imbtn_favoriteLv1"
+                    android:layout_width="@dimen/dp_70dp"
+                    android:layout_height="@dimen/dp_70dp"
+                    android:src="@drawable/custom_imbtn_favorite"
+                    android:background="@color/white"
+                    android:layout_marginLeft="@dimen/dp_20dp"/>
+
+            </LinearLayout>
+
+
+            <ImageView
+                android:id="@+id/imv_PictureLv1"
+                android:layout_width="@dimen/dp_350dp"
+                android:layout_height="@dimen/dp_350dp"
+                android:src="@drawable/school"
+                android:layout_gravity="center"/>
+
+            <ImageButton
+                android:id="@+id/imbtn_SpeakerLv1"
+                android:layout_width="@dimen/dp_100dp"
+                android:layout_height="@dimen/dp_100dp"
+                android:src="@drawable/speaker"
+                android:layout_marginTop="@dimen/dp_15dp"
+                android:layout_marginBottom="@dimen/dp_15dp"
+                android:background="@color/white"/>
+
+            <TextView
+                android:id="@+id/txv_MeanLv1"
+                android:layout_width="@dimen/dp_550dp"
+                android:layout_height="@dimen/dp_150dp"/>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.8"
+            android:orientation="horizontal"
+            android:background="@color/nav">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/imv_back"
                     android:background="@drawable/custom_imv_back"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="@dimen/dp_50dp"
+                    android:layout_height="@dimen/dp_50dp">
                 </ImageButton>
 
             </LinearLayout>
@@ -161,19 +147,20 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/imv_next"
                     android:background="@drawable/custom_imv_next"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="@dimen/dp_50dp"
+                    android:layout_height="@dimen/dp_50dp">
                 </ImageButton>
 
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-    <android.support.design.widget.NavigationView
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="@dimen/dp_329dp"
         android:layout_height="match_parent"
