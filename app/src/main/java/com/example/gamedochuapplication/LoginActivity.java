@@ -1,5 +1,6 @@
 package com.example.gamedochuapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +22,10 @@ import android.widget.Toast;
 
 import com.example.gamedochuapplication.network.Network;
 import com.example.gamedochuapplication.user_data.User;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,9 +35,10 @@ public class LoginActivity extends AppCompatActivity {
     Button btnLogin, btnSignUp, btnCancel;
     EditText edtUsername, edtPassword;
     Intent intent;
-    String username, password, id;
+
     Context context;
     ProgressDialog progress;
+    FirebaseAuth auth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +51,9 @@ public class LoginActivity extends AppCompatActivity {
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 //                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
-
+        auth = FirebaseAuth.getInstance();
         init();
-        clickLogin();
+//        clickLogin();
     }
 
     private void init() {
@@ -60,8 +66,42 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                intent = new Intent(LoginActivity.this, StartActivity.class);
-                startActivity(intent);
+                String email = edtUsername.getText().toString();
+                final String pass = edtPassword.getText().toString();
+
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (TextUtils.isEmpty(pass)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+
+                //authenticate user
+                auth.signInWithEmailAndPassword(email, pass)
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                // If sign in fails, display a message to the user. If sign in succeeds
+                                // the auth state listener will be notified and logic to handle the
+                                // signed in user can be handled in the listener.
+                                if (!task.isSuccessful()) {
+                                    // there was an error
+                                    if (pass.length() < 6) {
+                                        edtPassword.setError(getString(R.string.minimum_password));
+                                    } else {
+                                        Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
+                                    }
+                                } else {
+                                    Intent intent = new Intent(LoginActivity.this, StartActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        });
             }
         });
 
@@ -136,143 +176,143 @@ public class LoginActivity extends AppCompatActivity {
 //         });
 //    }
 
-    void clickLogin() {
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean error = false;
-
-                // get data
-                username = edtUsername.getText().toString().trim();
-                password = edtPassword.getText().toString().trim();
-
-                // password empty
-                if (TextUtils.isEmpty(password)) {
-                    edtPassword.requestFocus();
-                    error = true;
-                }
-
-                // username empty
-                if (TextUtils.isEmpty(username)) {
-                    edtUsername.requestFocus();
-                    error = true;
-                }
-                if (!error) {
-//                    SharedPreferences.Editor editor = sharedPreferences.edit();
-//                    editor.putString("username", userName);
-//                    editor.putString("pass", password);
-//                    editor.apply();
-                    loading();
-                    Login();
-                }
-
-            }
-        });
-    }
-
-
-    void login(){
-        boolean error = false;
-        username = edtUsername.getText().toString().trim();
-        password = edtPassword.getText().toString().trim();
-
-        if(TextUtils.isEmpty(password)){
-            edtPassword.requestFocus();
-            error = true;
-        }
-
-        if(TextUtils.isEmpty(username)){
-            edtUsername.requestFocus();
-            error = true;
-        }
-
-        if(!error){
-            Login();
-            loading();
-        }
-    }
-
-    Network network = Network.getInstance();
-
-    void Login() {
-        String json_post = create_Json_Login();
-        network.executePOST(User.URL, json_post, new Network.Callback() {
-            @Override
-            public void onCallBack(String json) {
-                final String jsons = json;
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        checkLogin(jsons);
-                    }
-                });
-            }
-
-            @Override
-            public void onFail(String error) {
-                Log.e("Error:", error);
-                android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(LoginActivity.this)
-                        .setTitle("Warning")
-                        .setMessage("Wifi is not connected!!!")
-                        .setNegativeButton("OK", new DialogInterface.OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                finish();
-                            }
-                        })
-                        .show();
-            }
-        });
-    }
-
-    String create_Json_Login() {
-        String json = "{\"username\":\"" + username + "\", \"password\":\"" + password + "\"}";
-        return json;
-    }
-
-    private void checkLogin(String json) {
-        JSONObject jsonObject;
-        try {
-            jsonObject = new JSONObject(json);
-            Boolean result = jsonObject.getBoolean("result");
-            String code = jsonObject.getString("code");
-            if (!result) {
-                showDialog_failLogin(code);
-            } else {
-                JSONObject jsonObject1Data = jsonObject.getJSONObject("data");
-                id = jsonObject1Data.getString("id");
-                Intent intent = new Intent(LoginActivity.this, StartActivity.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                Toast.makeText(context, "Login Success", Toast.LENGTH_LONG).show();
-                intent.putExtra(User.KEY_PASSWORD, password);
-                intent.putExtra(User.KEY_USERNAME, username);
-                intent.putExtra(User.KEY_USER_ID, id);
-                startActivity(intent);
-                progress.dismiss();
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    void clickLogin() {
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                boolean error = false;
+//
+//                // get data
+//                username = edtUsername.getText().toString().trim();
+//                password = edtPassword.getText().toString().trim();
+//
+//                // password empty
+//                if (TextUtils.isEmpty(password)) {
+//                    edtPassword.requestFocus();
+//                    error = true;
+//                }
+//
+//                // username empty
+//                if (TextUtils.isEmpty(username)) {
+//                    edtUsername.requestFocus();
+//                    error = true;
+//                }
+//                if (!error) {
+////                    SharedPreferences.Editor editor = sharedPreferences.edit();
+////                    editor.putString("username", userName);
+////                    editor.putString("pass", password);
+////                    editor.apply();
+//                    loading();
+//                    Login();
+//                }
+//
+//            }
+//        });
+//    }
 
 
-    void showDialog_failLogin(String code) {
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-        builder.setTitle(context.getResources().getString(R.string.dialogTitleLoginFail));
-        builder.setMessage(code);
-        builder.setCancelable(false);
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int i) {
-                dialog.dismiss();
-            }
-        });
-        android.app.AlertDialog alertDialog = builder.create();
-        alertDialog.show();
-        progress.dismiss();
-    }
+//    void login(){
+//        boolean error = false;
+//        username = edtUsername.getText().toString().trim();
+//        password = edtPassword.getText().toString().trim();
+//
+//        if(TextUtils.isEmpty(password)){
+//            edtPassword.requestFocus();
+//            error = true;
+//        }
+//
+//        if(TextUtils.isEmpty(username)){
+//            edtUsername.requestFocus();
+//            error = true;
+//        }
+//
+//        if(!error){
+//            Login();
+//            loading();
+//        }
+//    }
+//
+//    Network network = Network.getInstance();
+
+//    void Login() {
+//        String json_post = create_Json_Login();
+//        network.executePOST(User.URL, json_post, new Network.Callback() {
+//            @Override
+//            public void onCallBack(String json) {
+//                final String jsons = json;
+//                runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        checkLogin(jsons);
+//                    }
+//                });
+//            }
+//
+//            @Override
+//            public void onFail(String error) {
+//                Log.e("Error:", error);
+//                android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(LoginActivity.this)
+//                        .setTitle("Warning")
+//                        .setMessage("Wifi is not connected!!!")
+//                        .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+//
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                finish();
+//                            }
+//                        })
+//                        .show();
+//            }
+//        });
+//    }
+//
+//    String create_Json_Login() {
+//        String json = "{\"username\":\"" + username + "\", \"password\":\"" + password + "\"}";
+//        return json;
+//    }
+
+//    private void checkLogin(String json) {
+//        JSONObject jsonObject;
+//        try {
+//            jsonObject = new JSONObject(json);
+//            Boolean result = jsonObject.getBoolean("result");
+//            String code = jsonObject.getString("code");
+//            if (!result) {
+//                showDialog_failLogin(code);
+//            } else {
+//                JSONObject jsonObject1Data = jsonObject.getJSONObject("data");
+//                id = jsonObject1Data.getString("id");
+//                Intent intent = new Intent(LoginActivity.this, StartActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+//                Toast.makeText(context, "Login Success", Toast.LENGTH_LONG).show();
+//                intent.putExtra(User.KEY_PASSWORD, password);
+//                intent.putExtra(User.KEY_USERNAME, username);
+//                intent.putExtra(User.KEY_USER_ID, id);
+//                startActivity(intent);
+//                progress.dismiss();
+//            }
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+//
+//
+//    void showDialog_failLogin(String code) {
+//        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+//        builder.setTitle(context.getResources().getString(R.string.dialogTitleLoginFail));
+//        builder.setMessage(code);
+//        builder.setCancelable(false);
+//        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//            @Override
+//            public void onClick(DialogInterface dialog, int i) {
+//                dialog.dismiss();
+//            }
+//        });
+//        android.app.AlertDialog alertDialog = builder.create();
+//        alertDialog.show();
+//        progress.dismiss();
+//    }
 
 //    void wiFiCheck() {
 //        boolean check = ConnectionReceiver.isConnected();

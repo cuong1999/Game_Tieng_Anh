@@ -12,4 +12,6 @@
     <string name="dialogTitleLoginFail">Login Fail</string>
     <string name="errorSever">Can not connect server!!!</string>
     <string name="errorInternet">Please check your network connection</string>
+    <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
+    <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
 </resources>

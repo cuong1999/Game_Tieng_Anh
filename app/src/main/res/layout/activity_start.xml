@@ -52,8 +52,8 @@
 
                 <ImageButton
                     android:id="@+id/imv_back"
-                    android:layout_width="@dimen/dp_100dp"
-                    android:layout_height="@dimen/dp_100dp"
+                    android:layout_width="@dimen/dp_50dp"
+                    android:layout_height="@dimen/dp_50dp"
                     android:background="@drawable/custom_imv_back"></ImageButton>
 
             </LinearLayout>
@@ -109,8 +109,8 @@
                 <ImageButton
                     android:id="@+id/imv_next"
                     android:background="@drawable/custom_imv_next"
-                    android:layout_width="@dimen/dp_100dp"
-                    android:layout_height="@dimen/dp_100dp">
+                    android:layout_width="@dimen/dp_50dp"
+                    android:layout_height="@dimen/dp_50dp">
                 </ImageButton>
 
             </LinearLayout>

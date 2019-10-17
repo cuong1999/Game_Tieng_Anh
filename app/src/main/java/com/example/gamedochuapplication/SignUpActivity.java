@@ -1,5 +1,6 @@
 package com.example.gamedochuapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +19,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,6 +35,7 @@ public class SignUpActivity extends AppCompatActivity {
     Intent intent;
     Dialog dialog;
     ProgressDialog progressDialog;
+    FirebaseAuth auth;
     private static final String TAG = "SignUpActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +45,7 @@ public class SignUpActivity extends AppCompatActivity {
 
         actionBar.hide();
         setContentView(R.layout.layout_sign_up);
+        auth = FirebaseAuth.getInstance();
         init();
     }
 
@@ -59,16 +67,47 @@ public class SignUpActivity extends AppCompatActivity {
 
             }
         });
-    }
 
-    void clickSignUp(){
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String email = edtEmail.getText().toString();
+                String pass = edtPassword.getText().toString();
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
+                if (TextUtils.isEmpty(pass)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if (pass.length() < 6) {
+                    Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                auth.createUserWithEmailAndPassword(email, pass)
+                        .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task) {
+                                Toast.makeText(SignUpActivity.this, "createUserWithEmail:onComplete:" + task.isSuccessful(), Toast.LENGTH_SHORT).show();
+                                // If sign in fails, display a message to the user. If sign in succeeds
+                                // the auth state listener will be notified and logic to handle the
+                                // signed in user can be handled in the listener.
+                                if (!task.isSuccessful()) {
+                                    Toast.makeText(SignUpActivity.this, "Authentication failed." + task.getException(),
+                                            Toast.LENGTH_SHORT).show();
+                                } else {
+                                    startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
+                                    finish();
+                                }
+                            }
+                        });
             }
         });
     }
+
 
     public void showAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
