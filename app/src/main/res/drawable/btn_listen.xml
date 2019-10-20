@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:width="100dp"
-        android:height="100dp">
+        android:width="@dimen/dp_100dp"
+        android:height="@dimen/dp_100dp">
         <shape android:shape="oval"
             android:src="@drawable/speaker">
             <solid android:color="#BBBBBB"/>

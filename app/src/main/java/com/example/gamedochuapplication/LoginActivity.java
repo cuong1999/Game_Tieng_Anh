@@ -3,6 +3,7 @@ package com.example.gamedochuapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.SharedPreferencesCompat;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
@@ -38,7 +39,9 @@ public class LoginActivity extends AppCompatActivity {
 
     Context context;
     ProgressDialog progress;
+    SharedPreferences sharedPreferences;
     FirebaseAuth auth;
+    String email, pass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +54,21 @@ public class LoginActivity extends AppCompatActivity {
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
 //                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
-        auth = FirebaseAuth.getInstance();
+        context = this;
         init();
+        auth = FirebaseAuth.getInstance();
+        sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+        if (sharedPreferences.equals("")){
+            clickLogin();
+        }
+        else
+        {
+            edtUsername.setText(sharedPreferences.getString("username", ""));
+            edtPassword.setText(sharedPreferences.getString("password", ""));
+            login();
+
+        }
+
 //        clickLogin();
     }
 
@@ -63,47 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         edtUsername = findViewById(R.id.edt_username);
         edtPassword = findViewById(R.id.edt_password);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = edtUsername.getText().toString();
-                final String pass = edtPassword.getText().toString();
 
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (TextUtils.isEmpty(pass)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-
-                //authenticate user
-                auth.signInWithEmailAndPassword(email, pass)
-                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
-                                    // there was an error
-                                    if (pass.length() < 6) {
-                                        edtPassword.setError(getString(R.string.minimum_password));
-                                    } else {
-                                        Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
-                                    }
-                                } else {
-                                    Intent intent = new Intent(LoginActivity.this, StartActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-                            }
-                        });
-            }
-        });
 
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -120,6 +96,95 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    void clickLogin(){
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean error = false;
+
+                email = edtUsername.getText().toString();
+                pass = edtPassword.getText().toString();
+
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    error = true;
+                    return;
+                }
+
+                if (TextUtils.isEmpty(pass)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    error = true;
+                    return;
+                }
+
+                if (!error){
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("username", email);
+                    editor.putString("password", pass);
+                    editor.commit();
+                    Login();
+                }
+
+
+            }
+        });
+    }
+
+    void login(){
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean error = false;
+
+                email = edtUsername.getText().toString();
+                pass = edtPassword.getText().toString();
+
+                if (TextUtils.isEmpty(email)) {
+                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+                    error = true;
+                    return;
+                }
+
+                if (TextUtils.isEmpty(pass)) {
+                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+                    error = true;
+                    return;
+                }
+
+                if (!error){
+                    Login();
+                }
+
+
+            }
+        });
+    }
+
+    void Login(){
+        //authenticate user
+        auth.signInWithEmailAndPassword(email, pass)
+                .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        // If sign in fails, display a message to the user. If sign in succeeds
+                        // the auth state listener will be notified and logic to handle the
+                        // signed in user can be handled in the listener.
+                        if (!task.isSuccessful()) {
+                            // there was an error
+                            if (pass.length() < 6) {
+                                edtPassword.setError(getString(R.string.minimum_password));
+                            } else {
+                                Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
+                            }
+                        } else {
+                            Intent intent = new Intent(LoginActivity.this, StartActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+                });
     }
 
     public void showAlertDialog(){

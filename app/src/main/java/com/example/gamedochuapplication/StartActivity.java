@@ -56,7 +56,7 @@ public class StartActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, R.layout.item_lv_project);
         lv_project.setAdapter(adapter);
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("24/data");
+        DatabaseReference myRef = database.getReference("topic");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -23,6 +23,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,6 +48,7 @@ public class SignUpActivity extends AppCompatActivity {
         actionBar.hide();
         setContentView(R.layout.layout_sign_up);
         auth = FirebaseAuth.getInstance();
+
         init();
     }
 
@@ -68,11 +71,25 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
 
+
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = edtEmail.getText().toString();
                 String pass = edtPassword.getText().toString();
+                xuLyThemMoi(view);
+//                String fullname = edtFullname.getText().toString();
+//                String age = edtAge.getText().toString();
+//                String dob = edtDoB.getText().toString();
+//                String username = edtUsername.getText().toString();
+//                FirebaseDatabase database = FirebaseDatabase.getInstance();
+//                DatabaseReference myRef = database.getReference("user");
+//                myRef.child(username).child("fullname").setValue(fullname);
+//                myRef.child(username).child("age").setValue(age);
+//                myRef.child(username).child("dob").setValue(dob);
+//                myRef.child(username).child("email").setValue(email);
+//                finish();
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
                     return;
@@ -106,6 +123,30 @@ public class SignUpActivity extends AppCompatActivity {
                         });
             }
         });
+
+    }
+
+    public void xuLyThemMoi(View view) {
+        try {
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+//Kết nối tới node có tên là contacts (node này do ta định nghĩa trong CSDL Firebase)
+            DatabaseReference myRef = database.getReference("user");
+            String username = edtUsername.getText().toString();
+            String fullname= edtFullname.getText().toString();
+            String age = edtAge.getText().toString();
+            String dob = edtDoB.getText().toString();
+            String email = edtEmail.getText().toString();
+            //String email = edtEmail.getText().toString();
+            myRef.child(username).child("fullname").setValue(fullname);
+            myRef.child(username).child("age").setValue(age);
+            myRef.child(username).child("dob").setValue(dob);
+            myRef.child(username).child("email").setValue(email);
+            finish();
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(SignUpActivity.this,"Error:"+ex.toString(),Toast.LENGTH_LONG).show();
+        }
     }
 
 
