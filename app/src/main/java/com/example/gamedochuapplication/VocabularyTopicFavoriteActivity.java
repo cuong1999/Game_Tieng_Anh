@@ -15,7 +15,6 @@ public class VocabularyTopicFavoriteActivity extends AppCompatActivity {
     Intent intent = getIntent();
     ListView lv_word;
     ImageView imgSpeaker, imgHome;
-    LinearLayout item_lvWord;
     //Controls
     ImageButton imvBack, imvFavorite, imvHome, imvRestore, imvNext;
     @Override
@@ -25,11 +24,45 @@ public class VocabularyTopicFavoriteActivity extends AppCompatActivity {
         init();
     }
 
+    //full screen
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            hideSystemUI();
+        }
+    }
+
+    private void hideSystemUI() {
+        // Enables regular immersive mode.
+        // For "lean back" mode, remove SYSTEM_UI_FLAG_IMMERSIVE.
+        // Or for "sticky immersive," replace it with SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_IMMERSIVE
+                        // Set the content to appear under the system bars so that the
+                        // content doesn't resize when the system bars hide and show.
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        // Hide the nav bar and status bar
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN);
+    }
+
+    // Shows the system bars by removing all the flags
+// except for the ones that make the content appear under the system bars.
+    private void showSystemUI() {
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+    }
+
     private void init() {
         lv_word = findViewById(R.id.list_word);
         imgSpeaker = findViewById(R.id.img_speaker);
-        imgHome = findViewById(R.id.img_home);
-        item_lvWord = findViewById(R.id.item_list_word);
         imvBack = findViewById(R.id.imv_back);
         imvFavorite = findViewById(R.id.imv_favorite);
         imvHome = findViewById(R.id.imv_home);
@@ -53,7 +86,8 @@ public class VocabularyTopicFavoriteActivity extends AppCompatActivity {
         imvHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                intent = new Intent(VocabularyTopicFavoriteActivity.this, StartActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -71,20 +105,7 @@ public class VocabularyTopicFavoriteActivity extends AppCompatActivity {
             }
         });
 
-        item_lvWord.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(VocabularyTopicFavoriteActivity.this, Level1Activity.class);
-                startActivity(intent);
-            }
-        });
-        imgHome.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                intent = new Intent(VocabularyTopicFavoriteActivity.this, StartActivity.class);
-                startActivity(intent);
-            }
-        });
+
     }
 
     @Override

@@ -30,7 +30,7 @@
 
                 <TextView
                     android:layout_width="500dp"
-                    android:layout_height="300dp"
+                    android:layout_height="230dp"
                     android:layout_marginTop="@dimen/dp_20dp"
                     android:background="@drawable/custom_tv"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -49,44 +49,50 @@
                     android:id="@+id/btn_answer1_screen3"
                     android:layout_width="@dimen/dp_250dp"
                     android:layout_height="@dimen/dp_150dp"
+                    android:background="@drawable/custom_tv"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.125"
+                    app:layout_constraintHorizontal_bias="0.104"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.116"
+                    app:layout_constraintVertical_bias="0.262"
                     tools:ignore="MissingConstraints" />
 
                 <Button
                     android:id="@+id/btn_answer2_screen3"
                     android:layout_width="@dimen/dp_250dp"
                     android:layout_height="@dimen/dp_150dp"
-                    tools:layout_editor_absoluteX="@dimen/dp_313dp"
-                    tools:layout_editor_absoluteY="@dimen/dp_46dp"
-                    app:layout_constraintStart_toEndOf="@id/btn_answer1_screen3"
+                    android:background="@drawable/custom_tv"
                     app:layout_constraintBaseline_toBaselineOf="@id/btn_answer1_screen3"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/btn_answer1_screen3"
                     tools:ignore="MissingConstraints" />
 
                 <Button
                     android:id="@+id/btn_answer3_screen3"
                     android:layout_width="@dimen/dp_250dp"
                     android:layout_height="@dimen/dp_150dp"
+                    android:layout_marginStart="@dimen/dp_36dp"
+                    android:layout_marginLeft="@dimen/dp_36dp"
+                    android:background="@drawable/custom_tv"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btn_answer1_screen3"
-                    app:layout_constraintVertical_bias="0.261"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="44dp" />
+                    app:layout_constraintVertical_bias="0.324"
+                    tools:ignore="MissingConstraints" />
 
                 <Button
                     android:id="@+id/btn_answer4_screen3"
                     android:layout_width="@dimen/dp_250dp"
                     android:layout_height="@dimen/dp_150dp"
+                    android:layout_marginStart="@dimen/dp_32dp"
+                    android:layout_marginLeft="@dimen/dp_32dp"
+                    android:background="@drawable/custom_tv"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_answer3_screen3"
                     app:layout_constraintTop_toBottomOf="@id/btn_answer2_screen3"
-                    app:layout_constraintVertical_bias="0.257"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="322dp" />
+                    app:layout_constraintVertical_bias="0.324"
+                    tools:ignore="MissingConstraints" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -95,18 +101,20 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.8"
+            android:background="@color/nav">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/imv_back"
                     android:background="@drawable/custom_imv_back"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="@dimen/dp_50dp"
+                    android:layout_height="@dimen/dp_50dp">
                 </ImageButton>
 
             </LinearLayout>
@@ -156,13 +164,14 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/imv_next"
                     android:background="@drawable/custom_imv_next"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="@dimen/dp_50dp"
+                    android:layout_height="@dimen/dp_50dp">
                 </ImageButton>
 
             </LinearLayout>

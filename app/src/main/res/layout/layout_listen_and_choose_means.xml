@@ -45,19 +45,20 @@
                 android:layout_height="0dp"
                 android:layout_weight="5">
 
-            <Button
-                android:id="@+id/btn_answer1_screen2"
-                android:layout_width="@dimen/dp_250dp"
-                android:layout_height="@dimen/dp_150dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.125"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.116"
-                tools:ignore="MissingConstraints" />
+                <Button
+                    android:id="@+id/btn_answer1_screen2"
+                    android:layout_width="@dimen/dp_250dp"
+                    android:layout_height="@dimen/dp_150dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.102"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.115"
+                    tools:ignore="MissingConstraints"
+                    android:background="@drawable/custom_tv"/>
 
-            <Button
+                <Button
                 android:id="@+id/btn_answer2_screen2"
                 android:layout_width="@dimen/dp_250dp"
                 android:layout_height="@dimen/dp_150dp"
@@ -66,28 +67,34 @@
                 app:layout_constraintStart_toEndOf="@id/btn_answer1_screen2"
                 app:layout_constraintBaseline_toBaselineOf="@id/btn_answer1_screen2"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                    android:background="@drawable/custom_tv"/>
 
                 <Button
                     android:id="@+id/btn_answer3_screen2"
                     android:layout_width="@dimen/dp_250dp"
                     android:layout_height="@dimen/dp_150dp"
+                    android:layout_marginStart="@dimen/dp_36dp"
+                    android:layout_marginLeft="@dimen/dp_36dp"
+                    android:background="@drawable/custom_tv"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintStart_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/btn_answer1_screen2"
-                    app:layout_constraintVertical_bias="0.341"
+                    app:layout_constraintVertical_bias="0.253"
                     tools:ignore="MissingConstraints" />
 
                 <Button
                     android:id="@+id/btn_answer4_screen2"
                     android:layout_width="@dimen/dp_250dp"
                     android:layout_height="@dimen/dp_150dp"
+                    android:layout_marginStart="@dimen/dp_32dp"
+                    android:layout_marginLeft="@dimen/dp_32dp"
+                    android:background="@drawable/custom_tv"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btn_answer3_screen2"
                     app:layout_constraintTop_toBottomOf="@id/btn_answer2_screen2"
-                    app:layout_constraintVertical_bias="0.257"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="322dp" />
+                    app:layout_constraintVertical_bias="0.253"
+                    tools:ignore="MissingConstraints" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

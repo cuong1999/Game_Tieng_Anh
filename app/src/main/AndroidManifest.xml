@@ -16,12 +16,9 @@
         <activity android:name=".LevelActivity" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".VocabularyTopicFavoriteActivity"/>
         <activity android:name=".gameScreen.ListenAndChooseMeansScreen" >
-          <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".IntroActivity">
 <!--            <intent-filter>-->
@@ -29,8 +26,15 @@
 
 <!--               <category android:name="android.intent.category.LAUNCHER" />-->
 <!--           </intent-filter>&ndash;&gt;-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".StartActivity" />
+        <activity android:name=".StartActivity">
+
+        </activity>
         <activity android:name=".Level1Activity" />
     </application>
 

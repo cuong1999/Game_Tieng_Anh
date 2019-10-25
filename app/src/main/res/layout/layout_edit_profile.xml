@@ -127,8 +127,8 @@
 
         <Button
             android:id="@+id/btn_save_edit"
-            android:layout_width="163dp"
-            android:layout_height="64dp"
+            android:layout_width="213dp"
+            android:layout_height="91dp"
             android:layout_marginBottom="132dp"
             android:background="@drawable/btn_level_1"
             android:paddingLeft="@dimen/dp_50dp"
@@ -137,8 +137,8 @@
             android:paddingBottom="@dimen/dp_25dp"
             android:text="Save"
             android:textColor="@color/white"
-            android:textStyle="bold"
             android:textSize="@dimen/sp_30sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.137"

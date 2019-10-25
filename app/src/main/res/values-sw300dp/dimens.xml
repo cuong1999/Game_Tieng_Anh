@@ -138,4 +138,15 @@
   <dimen name="dp_658dp" tools:ignore="MissingDefaultResource">
     329dp
   </dimen>
+  <dimen name="dp_372dp" tools:ignore="MissingDefaultResource">
+    186dp
+  </dimen>
+  <dimen name="dp_51dp" tools:ignore="MissingDefaultResource">
+    25.5dp
+  </dimen>
+  <dimen name="dp_128dp" tools:ignore="MissingDefaultResource">64dp</dimen>
+  <dimen name="dp_67dp" tools:ignore="MissingDefaultResource">33.5dp</dimen>
+  <dimen name="dp_218dp" tools:ignore="MissingDefaultResource">109dp</dimen>
+  <dimen name="dp_36dp" tools:ignore="MissingDefaultResource">18dp</dimen>
+  <dimen name="dp_24dp" tools:ignore="MissingDefaultResource">12dp</dimen>
 </resources>

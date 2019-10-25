@@ -30,6 +30,7 @@
         android:layout_height="0dp"
         android:layout_weight="5"
         android:padding="@dimen/dp_15dp">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -53,8 +54,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="60dp"
                 android:text="Username: "
-                android:textStyle="bold"
                 android:textSize="@dimen/sp_30sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -63,8 +64,8 @@
 
             <EditText
                 android:id="@+id/edt_username"
-                android:layout_width="265dp"
-                android:layout_height="46dp"
+                android:layout_width="@dimen/dp_372dp"
+                android:layout_height="@dimen/dp_51dp"
                 android:layout_marginEnd="@dimen/dp_16dp"
                 android:layout_marginRight="@dimen/dp_16dp"
                 android:background="@drawable/custom_tv"
@@ -81,16 +82,16 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_66dp"
                 android:text="Password: "
-                android:textStyle="bold"
                 android:textSize="@dimen/sp_30sp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tv_username"
                 tools:ignore="MissingConstraints" />
 
             <EditText
                 android:id="@+id/edt_password"
-                android:layout_width="265dp"
-                android:layout_height="47dp"
+                android:layout_width="@dimen/dp_372dp"
+                android:layout_height="@dimen/dp_51dp"
                 android:layout_marginEnd="@dimen/dp_16dp"
                 android:layout_marginRight="@dimen/dp_16dp"
                 android:background="@drawable/custom_tv"
@@ -106,17 +107,17 @@
 
             <Button
                 android:id="@+id/btn_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dp_128dp"
+                android:layout_height="@dimen/dp_67dp"
+                android:layout_marginLeft="@dimen/dp_15dp"
                 android:background="@drawable/bnt_login"
                 android:padding="@dimen/dp_20dp"
                 android:paddingLeft="@dimen/dp_40dp"
                 android:paddingRight="@dimen/dp_40dp"
-                android:layout_marginLeft="@dimen/dp_15dp"
                 android:text="Login"
-                android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_20sp_text"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.078"
@@ -127,9 +128,9 @@
 
             <Button
                 android:id="@+id/btn_sign_up_in_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_width="@dimen/dp_128dp"
+                android:layout_height="@dimen/dp_67dp"
+                android:layout_marginTop="72dp"
                 android:layout_marginRight="@dimen/dp_15dp"
                 android:background="@drawable/btn_bg"
                 android:padding="@dimen/dp_20dp"
@@ -141,29 +142,29 @@
                 android:textStyle="bold"
                 app:layout_constraintBaseline_toBaselineOf="@id/btn_login"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.159"
+                app:layout_constraintHorizontal_bias="0.183"
                 app:layout_constraintStart_toEndOf="@id/btn_login"
                 app:layout_constraintTop_toBottomOf="@id/edt_password"
                 tools:ignore="MissingConstraints" />
 
             <Button
                 android:id="@+id/btn_cancel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/dp_128dp"
+                android:layout_height="@dimen/dp_67dp"
                 android:background="@drawable/btn_cancel"
                 android:padding="@dimen/dp_20dp"
                 android:paddingLeft="@dimen/dp_40dp"
                 android:paddingRight="@dimen/dp_40dp"
                 android:text="Cancle"
-                android:textStyle="bold"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_20sp_text"
-                tools:layout_editor_absoluteX="@dimen/dp_410dp"
-                tools:layout_editor_absoluteY="@dimen/dp_412dp"
-                app:layout_constraintStart_toEndOf="@id/btn_sign_up_in_login"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:textStyle="bold"
                 app:layout_constraintBaseline_toBaselineOf="@id/btn_login"
-            tools:ignore="MissingConstraints"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_sign_up_in_login"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="@dimen/dp_410dp"
+                tools:layout_editor_absoluteY="@dimen/dp_412dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </LinearLayout>

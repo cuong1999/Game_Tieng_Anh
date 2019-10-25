@@ -30,7 +30,7 @@
 
                 <TextView
                     android:layout_width="500dp"
-                    android:layout_height="300dp"
+                    android:layout_height="230dp"
                     android:layout_marginTop="@dimen/dp_20dp"
                     android:background="@drawable/custom_tv"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -49,12 +49,13 @@
                     android:id="@+id/image1_viewText_and_choose_pic"
                     android:layout_width="@dimen/dp_250dp"
                     android:layout_height="@dimen/dp_150dp"
+                    android:background="@drawable/custom_tv"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.125"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.116"
+                    app:layout_constraintVertical_bias="0.129"
                     tools:ignore="MissingConstraints" />
 
                 <ImageView
@@ -66,15 +67,17 @@
                     app:layout_constraintStart_toEndOf="@+id/image1_viewText_and_choose_pic"
                     app:layout_constraintBaseline_toBaselineOf="@+id/image1_viewText_and_choose_pic"
                     app:layout_constraintEnd_toEndOf="parent"
-                    tools:ignore="MissingConstraints" />
+                    tools:ignore="MissingConstraints"
+                    android:background="@drawable/custom_tv"/>
 
                 <ImageView
                     android:id="@+id/image3_viewText_and_choose_pic"
                     android:layout_width="@dimen/dp_250dp"
                     android:layout_height="@dimen/dp_150dp"
+                    android:background="@drawable/custom_tv"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/image1_viewText_and_choose_pic"
-                    app:layout_constraintVertical_bias="0.261"
+                    app:layout_constraintVertical_bias="0.29"
                     tools:ignore="MissingConstraints"
                     tools:layout_editor_absoluteX="44dp" />
 
@@ -86,7 +89,8 @@
                     app:layout_constraintTop_toBottomOf="@+id/image2_viewText_and_choose_pic"
                     app:layout_constraintVertical_bias="0.257"
                     tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="322dp" />
+                    tools:layout_editor_absoluteX="322dp"
+                    android:background="@drawable/custom_tv"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
@@ -95,18 +99,20 @@
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="0.8"
+            android:background="@color/nav">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/imv_back"
                     android:background="@drawable/custom_imv_back"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="@dimen/dp_50dp"
+                    android:layout_height="@dimen/dp_50dp">
                 </ImageButton>
 
             </LinearLayout>
@@ -156,13 +162,14 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:gravity="center">
 
                 <ImageButton
                     android:id="@+id/imv_next"
                     android:background="@drawable/custom_imv_next"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_width="@dimen/dp_50dp"
+                    android:layout_height="@dimen/dp_50dp">
                 </ImageButton>
 
             </LinearLayout>

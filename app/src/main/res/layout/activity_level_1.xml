@@ -51,32 +51,34 @@
                     android:layout_width="@dimen/dp_70dp"
                     android:layout_height="@dimen/dp_70dp"
                     android:src="@drawable/custom_imbtn_favorite"
-                    android:background="@color/white"
-                    android:layout_marginLeft="@dimen/dp_20dp"/>
+                    android:background="@drawable/custom_tv"
+                    android:layout_marginLeft="@dimen/dp_20dp" />
 
             </LinearLayout>
 
 
             <ImageView
                 android:id="@+id/imv_PictureLv1"
-                android:layout_width="@dimen/dp_350dp"
-                android:layout_height="@dimen/dp_350dp"
+                android:layout_width="350dp"
+                android:layout_height="300dp"
                 android:src="@drawable/school"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:background="@drawable/custom_tv"/>
 
             <ImageButton
                 android:id="@+id/imbtn_SpeakerLv1"
-                android:layout_width="@dimen/dp_100dp"
-                android:layout_height="@dimen/dp_100dp"
+                android:layout_width="@dimen/dp_70dp"
+                android:layout_height="@dimen/dp_70dp"
                 android:src="@drawable/speaker"
                 android:layout_marginTop="@dimen/dp_15dp"
                 android:layout_marginBottom="@dimen/dp_15dp"
-                android:background="@color/white"/>
+                android:background="@drawable/custom_tv"/>
 
             <TextView
                 android:id="@+id/txv_MeanLv1"
                 android:layout_width="@dimen/dp_550dp"
-                android:layout_height="@dimen/dp_150dp"/>
+                android:layout_height="@dimen/dp_150dp"
+                android:background="@drawable/custom_tv"/>
 
 
         </LinearLayout>
