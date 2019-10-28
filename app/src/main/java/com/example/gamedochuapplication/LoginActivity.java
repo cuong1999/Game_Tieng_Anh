@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             edtUsername.setText(sharedPreferences.getString("username", ""));
             edtPassword.setText(sharedPreferences.getString("password", ""));
             login();
-            loading();
+            //loading();
 
         }
 
@@ -162,7 +162,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putString("password", pass);
                     editor.commit();
                     Login();
-                    loading();
+                    //loading();
                 }
 
 
@@ -220,7 +220,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             Intent intent = new Intent(LoginActivity.this, StartActivity.class);
                             startActivity(intent);
-                            loading();
+//                            loading();
                             finish();
                         }
                     }
@@ -244,6 +244,7 @@ public class LoginActivity extends AppCompatActivity {
                 dialogInterface.dismiss();
                 intent = new Intent(LoginActivity.this, IntroActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
         AlertDialog alertDialog = builder.create();
@@ -440,7 +441,6 @@ public class LoginActivity extends AppCompatActivity {
         progress = new ProgressDialog(LoginActivity.this);
         progress.setMax(100);
         progress.setMessage("Waiting....");
-        progress.setTitle("LOGIN");
         progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progress.show();
         new Thread(new Runnable() {

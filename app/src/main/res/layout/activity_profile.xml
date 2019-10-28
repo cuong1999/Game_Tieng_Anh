@@ -14,13 +14,13 @@
         android:background="@color/bg_title">
 
         <ImageButton
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btnBack_profile"
+            android:layout_width="@dimen/dp_50dp"
+            android:layout_height="@dimen/dp_50dp"
             android:src="@drawable/back"
             android:background="@color/bg_title"
             android:layout_gravity="center_vertical"
-            android:layout_marginRight="100dp"/>
+            android:layout_marginRight="@dimen/dp_166dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/edt_fullName_edit"
+            android:id="@+id/edt_fullName_profile"
             android:layout_width="@dimen/dp_313dp"
             android:layout_height="@dimen/dp_50dp"
             android:background="@drawable/custom_tv"
@@ -48,7 +48,7 @@
             app:layout_constraintStart_toEndOf="@+id/tv_fullName_edit" />
 
         <EditText
-            android:id="@+id/edt_age_edit"
+            android:id="@+id/edt_age_profile"
             android:layout_width="@dimen/dp_313dp"
             android:layout_height="@dimen/dp_50dp"
             android:background="@drawable/custom_tv"
@@ -100,7 +100,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_age_edit" />
 
         <EditText
-            android:id="@+id/edt_dob_edit"
+            android:id="@+id/edt_dob_profile"
             android:layout_width="@dimen/dp_313dp"
             android:layout_height="@dimen/dp_50dp"
             android:background="@drawable/custom_tv"
@@ -125,7 +125,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_dob_edit" />
 
         <EditText
-            android:id="@+id/edt_email_edit"
+            android:id="@+id/edt_email_profile"
             android:layout_width="@dimen/dp_313dp"
             android:layout_height="@dimen/dp_50dp"
             android:background="@drawable/custom_tv"
@@ -150,7 +150,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_email_edit" />
 
         <EditText
-            android:id="@+id/edt_username_edit"
+            android:id="@+id/edt_username_profile"
             android:layout_width="@dimen/dp_313dp"
             android:layout_height="@dimen/dp_50dp"
             android:background="@drawable/custom_tv"

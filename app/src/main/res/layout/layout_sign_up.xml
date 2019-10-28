@@ -58,11 +58,13 @@
             android:id="@+id/edt_sign_up_fullname"
             android:layout_width="278dp"
             android:layout_height="48dp"
-            android:layout_marginTop="@dimen/dp_56dp"
+            android:layout_marginTop="40dp"
             android:background="@drawable/custom_tv"
             android:hint="Input fullname..."
             android:paddingLeft="@dimen/dp_15dp"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_fullname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/sign_up_fullname"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
@@ -113,6 +115,8 @@
             android:hint="dd/mm/yyyy"
             android:paddingLeft="@dimen/dp_15dp"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_age"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/sign_up_dob"
             tools:ignore="MissingConstraints" />
 
@@ -132,14 +136,16 @@
 
         <EditText
             android:id="@+id/edt_sign_up_email"
-            android:layout_width="241dp"
-            android:layout_height="52dp"
+            android:layout_width="242dp"
+            android:layout_height="47dp"
             android:layout_marginStart="68dp"
             android:layout_marginLeft="68dp"
             android:background="@drawable/custom_tv"
             android:hint="Input email..."
             android:paddingLeft="@dimen/dp_15dp"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/sign_up_email"
             tools:ignore="MissingConstraints" />
 
@@ -159,14 +165,16 @@
 
         <EditText
             android:id="@+id/edt_sign_up_username"
-            android:layout_width="241dp"
-            android:layout_height="50dp"
+            android:layout_width="244dp"
+            android:layout_height="49dp"
             android:layout_marginStart="24dp"
             android:layout_marginLeft="24dp"
             android:background="@drawable/custom_tv"
             android:hint="Input username...."
             android:paddingLeft="@dimen/dp_15dp"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_username"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/sign_up_username"
             tools:ignore="MissingConstraints" />
 
@@ -186,15 +194,17 @@
 
         <EditText
             android:id="@+id/edt_sign_up_password"
-            android:layout_width="243dp"
+            android:layout_width="241dp"
             android:layout_height="50dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginLeft="28dp"
             android:background="@drawable/custom_tv"
             android:hint="Input password..."
             android:paddingLeft="@dimen/dp_15dp"
             android:password="true"
             app:layout_constraintBaseline_toBaselineOf="@id/sign_up_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@id/sign_up_password"
             tools:ignore="MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>

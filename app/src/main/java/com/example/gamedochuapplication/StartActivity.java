@@ -3,13 +3,17 @@ package com.example.gamedochuapplication;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.AlertDialog;
 import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,8 +21,10 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.gamedochuapplication.data.Data;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -35,7 +41,10 @@ public class StartActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     Intent intent;
     String topic;
+
     String TAG = "FIREBASE";
+    DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,6 +110,56 @@ public class StartActivity extends AppCompatActivity {
         imvHome = findViewById(R.id.imv_home);
         imvRestore = findViewById(R.id.imv_restore);
         imvNext = findViewById(R.id.imv_next);
+        drawerLayout = findViewById(R.id.drawer_layout);
+
+
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(
+                new NavigationView.OnNavigationItemSelectedListener() {
+                    @Override
+                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        if (item.getItemId() == R.id.item_change_pass) {
+                            Intent intent = new Intent(StartActivity.this, ChangePasswordActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                        if (item.getItemId() == R.id.item_profile) {
+                            Intent intent = new Intent(StartActivity.this, ProfileActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                        if (item.getItemId() == R.id.item_logout) {
+                         showAlertDialog();
+                        }
+                        drawerLayout.closeDrawers();
+                        return true;
+                    }
+                }
+        );
+
+        drawerLayout.addDrawerListener(
+                new DrawerLayout.DrawerListener() {
+                    @Override
+                    public void onDrawerSlide(@NonNull View drawerView, float slideOffset) {
+
+                    }
+
+                    @Override
+                    public void onDrawerOpened(@NonNull View drawerView) {
+
+                    }
+
+                    @Override
+                    public void onDrawerClosed(@NonNull View drawerView) {
+
+                    }
+
+                    @Override
+                    public void onDrawerStateChanged(int newState) {
+
+                    }
+                }
+        );
 
         adapter = new ArrayAdapter<>(this, R.layout.item_lv_project);
         lv_project.setAdapter(adapter);
@@ -110,7 +169,7 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 adapter.clear();
-                for (DataSnapshot data: dataSnapshot.getChildren()){
+                for (DataSnapshot data : dataSnapshot.getChildren()) {
                     String key = data.getKey();
                     //String value = data.getValue().toString();
                     adapter.add(key);
@@ -164,11 +223,40 @@ public class StartActivity extends AppCompatActivity {
         lv_project.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-            Intent intent = getIntent();
-            intent.putExtra(Data.KEY_TOPIC, topic);
-            intent = new Intent(StartActivity.this, LevelActivity.class);
-            startActivity(intent);
+                Intent intent = getIntent();
+                intent.putExtra(Data.KEY_TOPIC, topic);
+                //Log.e("topic", topic);
+                intent = new Intent(StartActivity.this, LevelActivity.class);
+                startActivity(intent);
             }
         });
+
+
+    }
+
+    public void showAlertDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Back Login");
+        builder.setMessage("Would you like to stop signing up for an account?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Toast.makeText(StartActivity.this, "Program continue...", Toast.LENGTH_SHORT).show();
+            }
+        });
+        builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                FirebaseAuth mFirebaseAuth = FirebaseAuth.getInstance();
+                mFirebaseAuth.signOut();
+                Intent intent = new Intent(StartActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 }

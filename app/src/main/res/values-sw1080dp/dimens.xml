@@ -140,12 +140,12 @@
     <dimen name="dp_372dp" tools:ignore="MissingDefaultResource">
         669.6dp
     </dimen>
-    <dimen name="dp_51dp" tools:ignore="MissingDefaultResource">
-        91.8dp
-    </dimen>
+    <dimen name="dp_65dp" tools:ignore="MissingDefaultResource">117dp</dimen>
     <dimen name="dp_128dp" tools:ignore="MissingDefaultResource">230.4dp</dimen>
     <dimen name="dp_67dp" tools:ignore="MissingDefaultResource">120.6dp</dimen>
     <dimen name="dp_218dp" tools:ignore="MissingDefaultResource">392.4dp</dimen>
     <dimen name="dp_36dp" tools:ignore="MissingDefaultResource">64.8dp</dimen>
     <dimen name="dp_24dp" tools:ignore="MissingDefaultResource">43.2dp</dimen>
+    <dimen name="dp_278dp" tools:ignore="MissingDefaultResource">500.4dp</dimen>
+    <dimen name="dp_48dp" tools:ignore="MissingDefaultResource">86.4dp</dimen>
 </resources>

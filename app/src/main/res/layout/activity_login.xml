@@ -65,7 +65,7 @@
             <EditText
                 android:id="@+id/edt_username"
                 android:layout_width="@dimen/dp_372dp"
-                android:layout_height="@dimen/dp_51dp"
+                android:layout_height="@dimen/dp_65dp"
                 android:layout_marginEnd="@dimen/dp_16dp"
                 android:layout_marginRight="@dimen/dp_16dp"
                 android:background="@drawable/custom_tv"
@@ -91,7 +91,7 @@
             <EditText
                 android:id="@+id/edt_password"
                 android:layout_width="@dimen/dp_372dp"
-                android:layout_height="@dimen/dp_51dp"
+                android:layout_height="@dimen/dp_65dp"
                 android:layout_marginEnd="@dimen/dp_16dp"
                 android:layout_marginRight="@dimen/dp_16dp"
                 android:background="@drawable/custom_tv"

@@ -97,14 +97,14 @@ public class ListenAndChooseMeansScreen extends AppCompatActivity {
     List<Button> buttons = new ArrayList<Button>();
     void getData(){
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        final DatabaseReference myRef = database.getReference().child("topic/Actions (Hành động)");
+        final DatabaseReference myRef = database.getReference().child("topic/" + topic);
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                ArrayList<String> arrayListAnswer = new ArrayList<>();
                for (DataSnapshot data : dataSnapshot.getChildren()){
-                   String word = data.getKey();
-                   arrayListAnswer.add(word);
+                   String mean = data.getValue().toString();
+                   arrayListAnswer.add(mean);
                }
                Random random = new Random();
                Integer kq = random.nextInt(4);

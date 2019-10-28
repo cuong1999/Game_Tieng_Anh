@@ -76,6 +76,7 @@ public class IntroActivity extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(IntroActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -84,6 +85,7 @@ public class IntroActivity extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(IntroActivity.this, StartActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
