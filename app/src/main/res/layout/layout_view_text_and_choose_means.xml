@@ -14,7 +14,17 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/bg_title">
+            android:background="@color/bg_title"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Level 2"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/sp_50sp"
+                android:layout_gravity="center"/>
 
         </LinearLayout>
 
@@ -31,8 +41,8 @@
 
                 <TextView
                     android:id="@+id/txv_Vocabulary3"
-                    android:layout_width="350dp"
-                    android:layout_height="180dp"
+                    android:layout_width="@dimen/dp_350dp"
+                    android:layout_height="@dimen/dp_218dp"
                     android:layout_marginTop="@dimen/dp_20dp"
                     android:background="@drawable/custom_tv"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -181,13 +191,4 @@
         </LinearLayout>
     </LinearLayout>
 
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="@dimen/dp_329dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header"
-        app:menu="@menu/menu_list"/>
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ChangePasswordActivity"></activity>
+        <activity android:name=".NavHeaderActivity"/>
         <activity android:name=".ProfileActivity" />
         <activity android:name=".LevelActivity" />
         <activity android:name=".SignUpActivity" />

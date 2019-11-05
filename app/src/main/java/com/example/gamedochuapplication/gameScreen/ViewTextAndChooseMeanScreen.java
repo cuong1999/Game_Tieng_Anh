@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,7 +16,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.gamedochuapplication.FavoriteTopicActivity;
+import com.example.gamedochuapplication.LevelActivity;
 import com.example.gamedochuapplication.R;
+import com.example.gamedochuapplication.StartActivity;
 import com.example.gamedochuapplication.data.Data;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,6 +37,8 @@ public class ViewTextAndChooseMeanScreen extends AppCompatActivity {
     String topic;
     int[] id_button = {R.id.btn_answer1_screen3, R.id.btn_answer2_screen3, R.id.btn_answer3_screen3, R.id.btn_answer4_screen3};
     String TAG = "FIREBASE";
+    ImageView back, favorite, home, back_level, next;
+
 
 
     @Override
@@ -56,6 +62,7 @@ public class ViewTextAndChooseMeanScreen extends AppCompatActivity {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
             hideSystemUI();
+            showSystemUI();
         }
     }
 
@@ -88,6 +95,35 @@ public class ViewTextAndChooseMeanScreen extends AppCompatActivity {
 
     void init(){
         txv_Vocabulary3 = findViewById(R.id.txv_Vocabulary3);
+        back = findViewById(R.id.imv_back);
+        favorite = findViewById(R.id.imv_favorite);
+        home = findViewById(R.id.imv_home);
+        back_level = findViewById(R.id.imv_restore);
+        next = findViewById(R.id.imv_next);
+
+        favorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewTextAndChooseMeanScreen.this, FavoriteTopicActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewTextAndChooseMeanScreen.this, StartActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        back_level.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ViewTextAndChooseMeanScreen.this, LevelActivity.class);
+                startActivity(intent);
+            }
+        });
         getData();
     }
 
@@ -101,8 +137,8 @@ public class ViewTextAndChooseMeanScreen extends AppCompatActivity {
                 ArrayList<String> arrayListAnswer = new ArrayList<>();
                 for (DataSnapshot data : dataSnapshot.getChildren()){
                     String mean = data.getValue().toString();
-                    String key = data.getKey();
-                    arrayListAnswer.add(key);
+//                    String key = data.getKey();
+//                    arrayListAnswer.add(key);
                     arrayListAnswer.add(mean);
                 }
                 Random random = new Random();
@@ -148,5 +184,6 @@ public class ViewTextAndChooseMeanScreen extends AppCompatActivity {
         });
 
     }
+
 }
 

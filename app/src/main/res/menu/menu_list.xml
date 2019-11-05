@@ -19,5 +19,5 @@
     <item
         android:id="@+id/item_pch_team"
         android:icon="@drawable/info_team"
-        android:title="PCH Team"/>
+        android:title="PTeam"/>
 </menu>

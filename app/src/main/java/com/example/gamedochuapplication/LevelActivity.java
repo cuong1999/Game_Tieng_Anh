@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.example.gamedochuapplication.R;
 import com.example.gamedochuapplication.data.Data;
 import com.example.gamedochuapplication.gameScreen.ListenAndChooseMeansScreen;
+import com.example.gamedochuapplication.gameScreen.ViewTextAndChooseMeanScreen;
 
 public class LevelActivity extends AppCompatActivity {
     //Controls
@@ -137,7 +138,7 @@ public class LevelActivity extends AppCompatActivity {
         btn_lv2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LevelActivity.this, ListenAndChooseMeansScreen.class);
+                Intent intent = new Intent(LevelActivity.this, ViewTextAndChooseMeanScreen.class);
                 intent.putExtra(Data.KEY_TOPIC, topic);
                 startActivity(intent);
             }
