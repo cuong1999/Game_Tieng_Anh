@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -15,29 +17,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gamedochuapplication.R;
 import com.example.gamedochuapplication.data.Data;
-import com.google.firebase.FirebaseApp;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class ListenAndChooseMeansScreen extends AppCompatActivity {
-
-    ImageButton btnSpeaker, btnNext, btnBack, btnHome, btnFavorList;
+public class ViewTextAndChooseMeanScreen extends AppCompatActivity {
+    TextView txv_Vocabulary3;
     String topic;
-    int[] id_button = {R.id.btn_answer1_screen2, R.id.btn_answer2_screen2, R.id.btn_answer3_screen2, R.id.btn_answer4_screen2};
+    int[] id_button = {R.id.btn_answer1_screen3, R.id.btn_answer2_screen3, R.id.btn_answer3_screen3, R.id.btn_answer4_screen3};
     String TAG = "FIREBASE";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.layout_listen_and_choose_means);
+        setContentView(R.layout.layout_view_text_and_choose_means);
 
         //hide actionbar
         ActionBar actionBar = getSupportActionBar();
@@ -86,11 +87,7 @@ public class ListenAndChooseMeansScreen extends AppCompatActivity {
     }
 
     void init(){
-        btnSpeaker = findViewById(R.id.btn_speaker);
-        btnBack = findViewById(R.id.imv_back);
-        btnNext = findViewById(R.id.imv_next);
-        btnFavorList = findViewById(R.id.imv_favorite);
-        btnHome = findViewById(R.id.imv_home);
+        txv_Vocabulary3 = findViewById(R.id.txv_Vocabulary3);
         getData();
     }
 
@@ -101,44 +98,47 @@ public class ListenAndChooseMeansScreen extends AppCompatActivity {
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-               ArrayList<String> arrayListAnswer = new ArrayList<>();
-               for (DataSnapshot data : dataSnapshot.getChildren()){
-                   String mean = data.getValue().toString();
-                   arrayListAnswer.add(mean);
-               }
-               Random random = new Random();
-               int kq = random.nextInt(4);
-               for (int i = 0; i < 4; i++){
-                   Button button_answer;
-                   button_answer = findViewById(id_button[i]);
+                ArrayList<String> arrayListAnswer = new ArrayList<>();
+                for (DataSnapshot data : dataSnapshot.getChildren()){
+                    String mean = data.getValue().toString();
+                    String key = data.getKey();
+                    arrayListAnswer.add(key);
+                    arrayListAnswer.add(mean);
+                }
+                Random random = new Random();
+                int kq = random.nextInt(4);
+                for (int i = 0; i < 4; i++){
+                    Button button_answer;
+                    button_answer = findViewById(id_button[i]);
 
-                   if (i == kq){
-                       button_answer.setOnClickListener(new View.OnClickListener() {
-                           @Override
-                           public void onClick(View v) {
-                               Toast.makeText(ListenAndChooseMeansScreen.this, "answer", Toast.LENGTH_LONG).show();
-                           }
-                       });
-                   }
-                   else {
-                       button_answer.setOnClickListener(new View.OnClickListener() {
-                           @Override
-                           public void onClick(View v) {
-                               Toast.makeText(ListenAndChooseMeansScreen.this, "wrong answer", Toast.LENGTH_LONG).show();
-                           }
-                       });
-                   }
-                   int rand;
-                   rand = random.nextInt(arrayListAnswer.size());
-                   String mean = arrayListAnswer.get(rand);
-                   arrayListAnswer.remove(mean);
-                   button_answer.setVisibility(View.VISIBLE);
-                   if (mean != null){
-                       button_answer.setText(mean);
-                   }
-                   buttons.add(button_answer);
-               }
-               Log.e("result", arrayListAnswer + "");
+                    if (i == kq){
+                        button_answer.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+
+                                Toast.makeText(ViewTextAndChooseMeanScreen.this, "answer", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                    else {
+                        button_answer.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Toast.makeText(ViewTextAndChooseMeanScreen.this, "wrong answer", Toast.LENGTH_LONG).show();
+                            }
+                        });
+                    }
+                    int rand;
+                    rand = random.nextInt(arrayListAnswer.size());
+                    String mean = arrayListAnswer.get(rand);
+                    arrayListAnswer.remove(mean);
+                    button_answer.setVisibility(View.VISIBLE);
+                    if (mean != null){
+                        button_answer.setText(mean);
+                    }
+                    buttons.add(button_answer);
+                }
+                Log.e("result", arrayListAnswer + "");
             }
 
             @Override
@@ -149,3 +149,4 @@ public class ListenAndChooseMeansScreen extends AppCompatActivity {
 
     }
 }
+

@@ -21,6 +21,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+
 import com.example.gamedochuapplication.network.Network;
 import com.example.gamedochuapplication.user_data.User;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -40,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     Context context;
     ProgressDialog progress;
     SharedPreferences sharedPreferences;
+    String prefname = "data";
     FirebaseAuth auth;
     String email, pass;
     @Override
@@ -57,18 +59,20 @@ public class LoginActivity extends AppCompatActivity {
         context = this;
         init();
         auth = FirebaseAuth.getInstance();
-        sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
-        if (sharedPreferences.equals("")){
-            clickLogin();
-        }
-        else
-        {
-            edtUsername.setText(sharedPreferences.getString("username", ""));
-            edtPassword.setText(sharedPreferences.getString("password", ""));
-            login();
-            //loading();
 
-        }
+
+//        sharedPreferences = getSharedPreferences("data", Context.MODE_PRIVATE);
+//        if (sharedPreferences.equals("")){
+//            clickLogin();
+//        }
+//        else
+//        {
+//            edtUsername.setText(sharedPreferences.getString("username", ""));
+//            edtPassword.setText(sharedPreferences.getString("password", ""));
+//            login();
+//            //loading();
+//
+//        }
 
 //        clickLogin();
     }
@@ -133,76 +137,127 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-    }
-
-    void clickLogin(){
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                boolean error = false;
-
-                email = edtUsername.getText().toString();
-                pass = edtPassword.getText().toString();
-
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-                    error = true;
-                    return;
-                }
-
-                if (TextUtils.isEmpty(pass)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                    error = true;
-                    return;
-                }
-
-                if (!error){
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putString("username", email);
-                    editor.putString("password", pass);
-                    editor.commit();
-                    Login();
-                    //loading();
-                }
-
-
+            public void onClick(View v) {
+                Login();
+                savingPreferences();
+                restoringPreferences();
             }
         });
+
+
     }
 
-    void login(){
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                boolean error = false;
-
-                email = edtUsername.getText().toString();
-                pass = edtPassword.getText().toString();
-
-                if (TextUtils.isEmpty(email)) {
-                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
-                    error = true;
-                    return;
-                }
-
-                if (TextUtils.isEmpty(pass)) {
-                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
-                    error = true;
-                    return;
-                }
-
-                if (!error){
-                    Login();
-                    loading();
-                }
-
-
-            }
-        });
+    @Override
+    protected void onPause() {
+        // TODO Auto-generated method stub
+        super.onPause();
+        //gọi hàm lưu trạng thái ở đây
+        savingPreferences();
     }
+    @Override
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        //gọi hàm đọc trạng thái ở đây
+        restoringPreferences();
+    }
+
+    public void savingPreferences() {
+        //tạo đối tượng getSharedPreferences
+        SharedPreferences pre = getSharedPreferences
+                (prefname, MODE_PRIVATE);
+        //tạo đối tượng Editor để lưu thay đổi
+        SharedPreferences.Editor editor = pre.edit();
+        String username = edtUsername.getText().toString();
+        String password = edtPassword.getText().toString();
+
+        editor.putString("username", username);
+        editor.putString("password", password);
+        editor.commit();
+
+    }
+
+    public void restoringPreferences(){
+        SharedPreferences pre = getSharedPreferences(prefname, MODE_PRIVATE);
+        String username = pre.getString("username", "");
+        String password = pre.getString("password", "");
+        edtUsername.setText(username);
+        edtPassword.setText(password);
+    }
+
+//    void clickLogin(){
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                boolean error = false;
+//
+//                email = edtUsername.getText().toString();
+//                pass = edtPassword.getText().toString();
+//
+//                if (TextUtils.isEmpty(email)) {
+//                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+//                    error = true;
+//                    return;
+//                }
+//
+//                if (TextUtils.isEmpty(pass)) {
+//                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+//                    error = true;
+//                    return;
+//                }
+//
+//                if (!error){
+//                    SharedPreferences.Editor editor = sharedPreferences.edit();
+//                    editor.putString("username", email);
+//                    editor.putString("password", pass);
+//                    editor.commit();
+//                    Login();
+//                    //loading();
+//                }
+//
+//
+//            }
+//        });
+//    }
+//
+//    void login(){
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                boolean error = false;
+//
+//                email = edtUsername.getText().toString();
+//                pass = edtPassword.getText().toString();
+//
+//                if (TextUtils.isEmpty(email)) {
+//                    Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
+//                    error = true;
+//                    return;
+//                }
+//
+//                if (TextUtils.isEmpty(pass)) {
+//                    Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
+//                    error = true;
+//                    return;
+//                }
+//
+//                if (!error){
+//                    Login();
+//                    //loading();
+//                }
+//
+//
+//            }
+//        });
+//    }
 
     void Login(){
         //authenticate user
+        email = edtUsername.getText().toString().trim();
+        pass = edtPassword.getText().toString().trim();
+
         auth.signInWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -212,7 +267,7 @@ public class LoginActivity extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (!task.isSuccessful()) {
                             // there was an error
-                            if (pass.length() < 6) {
+                            if (pass.length() < 6 || pass.length() > 32) {
                                 edtPassword.setError(getString(R.string.minimum_password));
                             } else {
                                 Toast.makeText(LoginActivity.this, getString(R.string.auth_failed), Toast.LENGTH_LONG).show();
@@ -220,7 +275,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             Intent intent = new Intent(LoginActivity.this, StartActivity.class);
                             startActivity(intent);
-//                            loading();
+                            loading();
                             finish();
                         }
                     }
@@ -252,190 +307,6 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
-//     void clickLogin() {
-//         username = edtUsername.getText().toString().trim();
-//         password = edtPassword.getText().toString().trim();
-//         btnLogin.setOnClickListener(new View.OnClickListener() {
-//             @Override
-//             public void onClick(View view) {
-//                 username = edtUsername.getText().toString().trim();
-//                 password = edtPassword.getText().toString().trim();
-//                 if(username.equals("admin") && password.equals("123")){
-//                     intent = new Intent(LoginActivity.this, StartActivity.class);
-//                     startActivity(intent);
-//                 }
-//                 else
-//                 {
-//                     AlertDialog alertDialog = new AlertDialog.Builder(LoginActivity.this)
-//                             .setTitle("Error")
-//                             .setMessage("Username or password not correct!!")
-//                             .setNegativeButton("OK", new DialogInterface.OnClickListener() {
-//                         @Override
-//                         public void onClick(DialogInterface dialogInterface, int i) {
-//                             finish();
-//                         }
-//                     }).show();
-//                 }
-//
-//             }
-//         });
-//    }
-
-//    void clickLogin() {
-//        btnLogin.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                boolean error = false;
-//
-//                // get data
-//                username = edtUsername.getText().toString().trim();
-//                password = edtPassword.getText().toString().trim();
-//
-//                // password empty
-//                if (TextUtils.isEmpty(password)) {
-//                    edtPassword.requestFocus();
-//                    error = true;
-//                }
-//
-//                // username empty
-//                if (TextUtils.isEmpty(username)) {
-//                    edtUsername.requestFocus();
-//                    error = true;
-//                }
-//                if (!error) {
-////                    SharedPreferences.Editor editor = sharedPreferences.edit();
-////                    editor.putString("username", userName);
-////                    editor.putString("pass", password);
-////                    editor.apply();
-//                    loading();
-//                    Login();
-//                }
-//
-//            }
-//        });
-//    }
-
-
-//    void login(){
-//        boolean error = false;
-//        username = edtUsername.getText().toString().trim();
-//        password = edtPassword.getText().toString().trim();
-//
-//        if(TextUtils.isEmpty(password)){
-//            edtPassword.requestFocus();
-//            error = true;
-//        }
-//
-//        if(TextUtils.isEmpty(username)){
-//            edtUsername.requestFocus();
-//            error = true;
-//        }
-//
-//        if(!error){
-//            Login();
-//            loading();
-//        }
-//    }
-//
-//    Network network = Network.getInstance();
-
-//    void Login() {
-//        String json_post = create_Json_Login();
-//        network.executePOST(User.URL, json_post, new Network.Callback() {
-//            @Override
-//            public void onCallBack(String json) {
-//                final String jsons = json;
-//                runOnUiThread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        checkLogin(jsons);
-//                    }
-//                });
-//            }
-//
-//            @Override
-//            public void onFail(String error) {
-//                Log.e("Error:", error);
-//                android.app.AlertDialog alertDialog = new android.app.AlertDialog.Builder(LoginActivity.this)
-//                        .setTitle("Warning")
-//                        .setMessage("Wifi is not connected!!!")
-//                        .setNegativeButton("OK", new DialogInterface.OnClickListener() {
-//
-//                            @Override
-//                            public void onClick(DialogInterface dialogInterface, int i) {
-//                                finish();
-//                            }
-//                        })
-//                        .show();
-//            }
-//        });
-//    }
-//
-//    String create_Json_Login() {
-//        String json = "{\"username\":\"" + username + "\", \"password\":\"" + password + "\"}";
-//        return json;
-//    }
-
-//    private void checkLogin(String json) {
-//        JSONObject jsonObject;
-//        try {
-//            jsonObject = new JSONObject(json);
-//            Boolean result = jsonObject.getBoolean("result");
-//            String code = jsonObject.getString("code");
-//            if (!result) {
-//                showDialog_failLogin(code);
-//            } else {
-//                JSONObject jsonObject1Data = jsonObject.getJSONObject("data");
-//                id = jsonObject1Data.getString("id");
-//                Intent intent = new Intent(LoginActivity.this, StartActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                Toast.makeText(context, "Login Success", Toast.LENGTH_LONG).show();
-//                intent.putExtra(User.KEY_PASSWORD, password);
-//                intent.putExtra(User.KEY_USERNAME, username);
-//                intent.putExtra(User.KEY_USER_ID, id);
-//                startActivity(intent);
-//                progress.dismiss();
-//            }
-//        } catch (JSONException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
-//
-//
-//    void showDialog_failLogin(String code) {
-//        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
-//        builder.setTitle(context.getResources().getString(R.string.dialogTitleLoginFail));
-//        builder.setMessage(code);
-//        builder.setCancelable(false);
-//        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialog, int i) {
-//                dialog.dismiss();
-//            }
-//        });
-//        android.app.AlertDialog alertDialog = builder.create();
-//        alertDialog.show();
-//        progress.dismiss();
-//    }
-
-//    void wiFiCheck() {
-//        boolean check = ConnectionReceiver.isConnected();
-//        if (check == false) {
-//            android.app.AlertDialog alertDialog = new AlertDialog.Builder(this)
-//                    .setTitle("Warning")
-//                    .setMessage("Wifi is not connected!!!")
-//                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
-//
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            finish();
-//                        }
-//                    })
-//                    .show();
-//        }
-//    }
 
     private void loading() {
         progress = new ProgressDialog(LoginActivity.this);

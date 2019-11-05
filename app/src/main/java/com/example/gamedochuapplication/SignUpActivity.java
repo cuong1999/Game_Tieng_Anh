@@ -28,6 +28,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -35,8 +36,6 @@ public class SignUpActivity extends AppCompatActivity {
     Button btnSignUp;
     ImageButton imbBackSignup;
     Intent intent;
-    Dialog dialog;
-    ProgressDialog progressDialog;
     FirebaseAuth auth;
     private static final String TAG = "SignUpActivity";
     @Override
@@ -90,12 +89,12 @@ public class SignUpActivity extends AppCompatActivity {
 
     private void init() {
         btnSignUp = findViewById(R.id.btn_signUp);
-        edtFullname = findViewById(R.id.edt_sign_up_fullname);
-        edtAge = findViewById(R.id.edt_sign_up_age);
-        edtDoB = findViewById(R.id.edt_sign_up_dob);
-        edtEmail = findViewById(R.id.edt_sign_up_email);
-        edtUsername = findViewById(R.id.edt_sign_up_username);
-        edtPassword = findViewById(R.id.edt_sign_up_password);
+        edtFullname = findViewById(R.id.edt_fullname_signup);
+        edtAge = findViewById(R.id.edt_age_signup);
+        edtDoB = findViewById(R.id.edt_dob_signup);
+        edtEmail = findViewById(R.id.edt_email_signup);
+        edtUsername = findViewById(R.id.edt_user_signup);
+        edtPassword = findViewById(R.id.edt_pass_signup);
         imbBackSignup = findViewById(R.id.imbBackSignup);
 
         //click Imagebutton Back Sign up
@@ -115,17 +114,7 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = edtEmail.getText().toString();
                 String pass = edtPassword.getText().toString();
                 xuLyThemMoi(view);
-//                String fullname = edtFullname.getText().toString();
-//                String age = edtAge.getText().toString();
-//                String dob = edtDoB.getText().toString();
-//                String username = edtUsername.getText().toString();
-//                FirebaseDatabase database = FirebaseDatabase.getInstance();
-//                DatabaseReference myRef = database.getReference("user");
-//                myRef.child(username).child("fullname").setValue(fullname);
-//                myRef.child(username).child("age").setValue(age);
-//                myRef.child(username).child("dob").setValue(dob);
-//                myRef.child(username).child("email").setValue(email);
-//                finish();
+
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
                     return;
@@ -140,6 +129,7 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
                 auth.createUserWithEmailAndPassword(email, pass)
                         .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
@@ -172,11 +162,19 @@ public class SignUpActivity extends AppCompatActivity {
             String age = edtAge.getText().toString();
             String dob = edtDoB.getText().toString();
             String email = edtEmail.getText().toString();
-            //String email = edtEmail.getText().toString();
-            myRef.child(username).child("fullname").setValue(fullname);
-            myRef.child(username).child("age").setValue(age);
-            myRef.child(username).child("dob").setValue(dob);
-            myRef.child(username).child("email").setValue(email);
+            if (TextUtils.isEmpty(username) || TextUtils.isEmpty(fullname) || TextUtils.isEmpty(age)
+                    || TextUtils.isEmpty(dob) || TextUtils.isEmpty(email)){
+                Toast.makeText(getApplicationContext(), "Enter all field...", Toast.LENGTH_LONG).show();
+                return;
+            }
+            else {
+                //String email = edtEmail.getText().toString();
+                myRef.child(username).child("fullname").setValue(fullname);
+                myRef.child(username).child("age").setValue(age);
+                myRef.child(username).child("dob").setValue(dob);
+                myRef.child(username).child("email").setValue(email);
+            }
+
             finish();
         }
         catch (Exception ex)

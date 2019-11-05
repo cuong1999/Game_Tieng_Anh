@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class Level1Activity extends AppCompatActivity {
 
-    TextView txv_MeanLv1, txv_VocabularyLv1;
+    TextView txv_VocabularyLv1;
     ImageButton imbtn_SpeakerLv1, imbtn_favoriteLv1;
     ImageView imv_PictureLv1;
     Intent intent;
@@ -74,7 +74,6 @@ public class Level1Activity extends AppCompatActivity {
 
     private void init() {
 
-        txv_MeanLv1 = findViewById(R.id.txv_MeanLv1);
         txv_VocabularyLv1 = findViewById(R.id.txv_VocabularyLv1);
         imbtn_SpeakerLv1 = findViewById(R.id.imbtn_SpeakerLv1);
         imbtn_favoriteLv1 = findViewById(R.id.imbtn_favoriteLv1);
@@ -84,6 +83,7 @@ public class Level1Activity extends AppCompatActivity {
         imvHome = findViewById(R.id.imv_home);
         imvRestore = findViewById(R.id.imv_restore);
         imvNext = findViewById(R.id.imv_next);
+
 
         imvBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +95,8 @@ public class Level1Activity extends AppCompatActivity {
         imvFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(Level1Activity.this, FavoriteTopicActivity.class);
+                startActivity(intent);
 
             }
         });
@@ -102,15 +104,16 @@ public class Level1Activity extends AppCompatActivity {
         imvHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            intent = new Intent(Level1Activity.this, StartActivity.class);
-            startActivity(intent);
+                intent = new Intent(Level1Activity.this, StartActivity.class);
+                startActivity(intent);
             }
         });
 
         imvRestore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                intent = new Intent(Level1Activity.this, LevelActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -120,6 +123,7 @@ public class Level1Activity extends AppCompatActivity {
 
             }
         });
+
     }
 
     @Override

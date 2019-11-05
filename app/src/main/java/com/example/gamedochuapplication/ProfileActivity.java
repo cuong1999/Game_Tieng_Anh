@@ -1,31 +1,34 @@
 package com.example.gamedochuapplication;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FacebookAuthCredential;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity{
     Button btn_edit;
-    EditText edt_Fullname, edt_Age, edt_dob, edt_email, edt_user;
+    ImageButton btn_Back_profile;
+    EditText edt_fullname, edt_age, edt_dob, edt_email, edt_user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,58 +77,36 @@ public class ProfileActivity extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
     }
 
-   private void init(){
-        edt_Fullname = findViewById(R.id.edt_fullName_profile);
-        edt_Age = findViewById(R.id.edt_age_profile);
+
+
+    private void init(){
+        edt_fullname = findViewById(R.id.edt_fullName_profile);
+        edt_age = findViewById(R.id.edt_age_profile);
         edt_dob = findViewById(R.id.edt_dob_profile);
         edt_email = findViewById(R.id.edt_email_profile);
         edt_user = findViewById(R.id.edt_username_profile);
+
+
         btn_edit = findViewById(R.id.btnEditProfile);
+        btn_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-
-
-       FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-       if (user != null){
-           FirebaseDatabase database = FirebaseDatabase.getInstance();
-//Kết nối tới node có tên là contacts (node này do ta định nghĩa trong CSDL Firebase)
-           DatabaseReference myRef = database.getReference("user");
-           String username = edt_user.getText().toString();
-           String fullname= edt_Fullname.getText().toString();
-           String age = edt_Age.getText().toString();
-           String dob = edt_dob.getText().toString();
-           String email = edt_email.getText().toString();
-           //String email = edtEmail.getText().toString();
-           myRef.child(username).child("fullname").setValue(fullname);
-           myRef.child(username).child("age").setValue(age);
-           myRef.child(username).child("dob").setValue(dob);
-           myRef.child(username).child("email").setValue(email);
-       }
-       else {
-           Toast.makeText(ProfileActivity.this,"Not get profile",Toast.LENGTH_LONG).show();
-       }
+        btn_Back_profile = findViewById(R.id.btnBack_profile);
+        btn_Back_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, StartActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
    }
 
-//    public void Load(View view) {
-//        try {
-//            FirebaseDatabase database = FirebaseDatabase.getInstance();
-////Kết nối tới node có tên là contacts (node này do ta định nghĩa trong CSDL Firebase)
-//            DatabaseReference myRef = database.getReference("user");
-//            String username = edt_user.getText().toString();
-//            String fullname= edt_Fullname.getText().toString();
-//            String age = edt_Age.getText().toString();
-//            String dob = edt_dob.getText().toString();
-//            String email = edt_email.getText().toString();
-//            //String email = edtEmail.getText().toString();
-//            myRef.child(username).child("fullname").setValue(fullname);
-//            myRef.child(username).child("age").setValue(age);
-//            myRef.child(username).child("dob").setValue(dob);
-//            myRef.child(username).child("email").setValue(email);
-//            finish();
-//        }
-//        catch (Exception ex)
-//        {
-//            Toast.makeText(ProfileActivity.this,"Error:"+ex.toString(),Toast.LENGTH_LONG).show();
-//        }
-//    }
 
 }

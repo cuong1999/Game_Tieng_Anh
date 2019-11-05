@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">GameDoChuApplication</string>
+    <string name="app_name">English Playing</string>
     <string name="txt_learn">Learn</string>
     <string name="check">Check</string>
     <string name="Eng">text</string>
@@ -14,4 +14,16 @@
     <string name="errorInternet">Please check your network connection</string>
     <string name="minimum_password">Password too short, enter minimum 6 characters!</string>
     <string name="auth_failed">Authentication failed, check your email and password or sign up</string>
+    <string name="fullname_signup">Fullname: </string>
+    <string name="age_signup">Age: </string>
+    <string name="dob_signup">DoB: </string>
+    <string name="email_signup">Email: </string>
+    <string name="username_signup">Username: </string>
+    <string name="pass_signup">Password: </string>
+    <string name="input_fullname_signup">Input full name...</string>
+    <string name="input_age_signup">age...</string>
+    <string name="input_dob_signup">Input birthday...</string>
+    <string name="input_email_signup">Input email...</string>
+    <string name="input_user_signup">Input username...</string>
+    <string name="input_pass_signup">Input password...</string>
 </resources>

@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class ChangePasswordActivity extends AppCompatActivity {
-    EditText edt_old_pass, edt_new_pass, edt_re_pass;
+    EditText edt_new_pass, edt_re_pass;
     Button btn_save_change,btn_cancel;
     FirebaseAuth auth;
     ProgressDialog dialog;
@@ -79,7 +79,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
     private void init(){
         btn_save_change = findViewById(R.id.btn_Save_change);
         btn_cancel = findViewById(R.id.btn_Cancel_change);
-        edt_old_pass = findViewById(R.id.edt_Old_pass);
         edt_new_pass = findViewById(R.id.edt_New_pass);
         edt_re_pass = findViewById(R.id.edt_Confirm_pass);
 
@@ -91,9 +90,6 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 if (edt_re_pass.getText().toString().equals(edt_new_pass.getText().toString())){
                     change(v);
                 }
-//                if (edt_old_pass.getText().toString().equals(user.toString())){
-//                    change(v);
-//                }
                 else {
                     dialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Password could not be change", Toast.LENGTH_LONG).show();

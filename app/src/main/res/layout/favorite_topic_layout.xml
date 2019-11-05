@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Level1Activity">
+    tools:context=".FavoriteTopicActivity"
+    android:id="@+id/drawer_layout_favorite">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,12 +16,12 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:gravity="center"
-            android:background="@color/bg_title">
+            android:background="@color/bg_title"
+            android:gravity="center">
 
             <ImageView
-                android:id="@+id/img_home"
-                android:layout_width="@dimen/dp_150dp"
+                android:id="@+id/img_home_favovite"
+                android:layout_width="@dimen/dp_100dp"
                 android:layout_height="@dimen/dp_100dp"
                 android:src="@drawable/quesansw" />
         </LinearLayout>
@@ -27,66 +29,19 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="6"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_weight="7">
 
-            <LinearLayout
+            <ListView
+                android:id="@+id/lv_favorite"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center">
-
-                <TextView
-                    android:id="@+id/txv_VocabularyLv1"
-                    android:layout_width="@dimen/dp_171dp"
-                    android:layout_height="@dimen/dp_65dp"
-                    android:layout_gravity="center"
-                    android:text="vocabulary"
-                    android:textSize="@dimen/sp_30sp"
-                    android:layout_marginTop="@dimen/dp_40dp"
-                    android:layout_marginBottom="@dimen/dp_40dp"/>
-
-                <ImageButton
-                    android:id="@+id/imbtn_favoriteLv1"
-                    android:layout_width="@dimen/dp_70dp"
-                    android:layout_height="@dimen/dp_70dp"
-                    android:src="@drawable/custom_imbtn_favorite"
-                    android:background="@drawable/custom_tv"
-                    android:layout_marginLeft="@dimen/dp_20dp" />
-
-            </LinearLayout>
-
-
-            <ImageView
-                android:id="@+id/imv_PictureLv1"
-                android:layout_width="@dimen/dp_350dp"
-                android:layout_height="@dimen/dp_278dp"
-                android:src="@drawable/school"
-                android:layout_gravity="center"
-                android:background="@drawable/custom_tv"/>
-
-            <ImageButton
-                android:id="@+id/imbtn_SpeakerLv1"
-                android:layout_width="@dimen/dp_70dp"
-                android:layout_height="@dimen/dp_70dp"
-                android:src="@drawable/speaker"
-                android:layout_marginTop="@dimen/dp_15dp"
-                android:layout_marginBottom="@dimen/dp_15dp"
-                android:background="@drawable/custom_tv"/>
-
-            <TextView
-                android:id="@+id/txv_MeanLv1"
-                android:layout_width="@dimen/dp_550dp"
-                android:layout_height="@dimen/dp_150dp"
-                android:background="@drawable/custom_tv"/>
-
-
+                android:layout_height="match_parent" />
         </LinearLayout>
+
         <LinearLayout
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="0.8"
-            android:orientation="horizontal"
             android:background="@color/nav">
 
             <LinearLayout
@@ -96,11 +51,10 @@
                 android:gravity="center">
 
                 <ImageButton
-                    android:id="@+id/imv_back"
-                    android:background="@drawable/custom_imv_back"
+                    android:id="@+id/imv_back_favorite"
                     android:layout_width="@dimen/dp_50dp"
-                    android:layout_height="@dimen/dp_50dp">
-                </ImageButton>
+                    android:layout_height="@dimen/dp_50dp"
+                    android:background="@drawable/custom_imv_back"></ImageButton>
 
             </LinearLayout>
 
@@ -110,7 +64,7 @@
                 android:layout_weight="1">
 
                 <ImageButton
-                    android:id="@+id/imv_favorite"
+                    android:id="@+id/imv_favorite_favorite"
                     android:background="@drawable/custom_imv_favorite"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -124,7 +78,7 @@
                 android:layout_weight="1">
 
                 <ImageButton
-                    android:id="@+id/imv_home"
+                    android:id="@+id/imv_home_favorite"
                     android:background="@drawable/custom_imv_home"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -138,7 +92,7 @@
                 android:layout_weight="1">
 
                 <ImageButton
-                    android:id="@+id/imv_restore"
+                    android:id="@+id/imv_restore_favorite"
                     android:background="@drawable/custom_imv_restore"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
@@ -153,7 +107,7 @@
                 android:gravity="center">
 
                 <ImageButton
-                    android:id="@+id/imv_next"
+                    android:id="@+id/imv_next_favorite"
                     android:background="@drawable/custom_imv_next"
                     android:layout_width="@dimen/dp_50dp"
                     android:layout_height="@dimen/dp_50dp">

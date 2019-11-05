@@ -22,7 +22,7 @@
                 android:id="@+id/txvTopicname"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Topic_name"
+                android:text="TextView"
                 android:textSize="@dimen/sp_50sp"
                 android:textColor="@color/white"
                 android:textStyle="bold"/>

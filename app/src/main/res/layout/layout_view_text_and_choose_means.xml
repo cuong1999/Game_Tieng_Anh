@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".gameScreen.ViewTextAndChooseMeanScreen">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -29,8 +30,9 @@
                 android:layout_weight="3">
 
                 <TextView
-                    android:layout_width="500dp"
-                    android:layout_height="230dp"
+                    android:id="@+id/txv_Vocabulary3"
+                    android:layout_width="350dp"
+                    android:layout_height="180dp"
                     android:layout_marginTop="@dimen/dp_20dp"
                     android:background="@drawable/custom_tv"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -40,6 +42,7 @@
                     android:textSize="@dimen/sp_30sp"
                     android:gravity="center"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -179,7 +182,7 @@
     </LinearLayout>
 
 
-    <android.support.design.widget.NavigationView
+    <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="@dimen/dp_329dp"
         android:layout_height="match_parent"

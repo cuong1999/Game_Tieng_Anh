@@ -64,6 +64,7 @@ public class StartActivity extends AppCompatActivity {
         topic = intent.getStringExtra(Data.KEY_TOPIC);
 
 
+
         init();
     }
 

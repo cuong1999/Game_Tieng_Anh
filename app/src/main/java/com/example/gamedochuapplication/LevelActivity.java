@@ -9,6 +9,7 @@ import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 
 import com.example.gamedochuapplication.R;
@@ -18,6 +19,7 @@ import com.example.gamedochuapplication.gameScreen.ListenAndChooseMeansScreen;
 public class LevelActivity extends AppCompatActivity {
     //Controls
     ImageButton imvBack, imvFavorite, imvHome, imvRestore, imvNext;
+    TextView txvTopicname;
     Button btn_lv1, btn_lv2, btn_lv3;
     Intent intent;
     String topic;
@@ -75,6 +77,7 @@ public class LevelActivity extends AppCompatActivity {
 
     public void init()
     {
+        txvTopicname = findViewById(R.id.txvTopicname);
         imvBack = findViewById(R.id.imv_back);
         imvFavorite = findViewById(R.id.imv_favorite);
         imvHome = findViewById(R.id.imv_home);
@@ -95,7 +98,9 @@ public class LevelActivity extends AppCompatActivity {
         imvFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                intent = new Intent(LevelActivity.this, FavoriteTopicActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -104,13 +109,13 @@ public class LevelActivity extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(LevelActivity.this, StartActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
         imvRestore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
             }
         });
 
@@ -118,6 +123,15 @@ public class LevelActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+            }
+        });
+
+        btn_lv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(LevelActivity.this, Level1Activity.class);
+                intent.putExtra(Data.KEY_TOPIC, topic);
+                startActivity(intent);
             }
         });
         btn_lv2.setOnClickListener(new View.OnClickListener() {
